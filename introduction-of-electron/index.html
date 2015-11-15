@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Introduction of Electron</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<link rel="stylesheet" href="css/original.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section id="p1">
+					<h3 style="text-align: left;">Electronで<br />デスクトップアプリことはじめ</h3>
+					<p style="text-align: left;">
+						<small><a href="https://rawcode.net/">Yu Watanabe(@yuw27b)</a><br />2015.11.14 NDS in Niigata #8</small>
+					</p>
+				</section>
+
+				<section id="p2">
+					<section>
+						<h3>Electronとは</h3>
+						<p class="fragment" style="text-align: left;">Windows、OS X、Linuxに対応するデスクトップアプリケーションを作成するためのフレームワーク</p>
+						<p class="fragment" style="text-align: left;">
+							GitHub社が開発している<br />
+							<a href="http://electron.atom.io/" target="_blank">http://electron.atom.io/</a><br />
+							<a href="https://github.com/atom/electron" target="_blank">https://github.com/atom/electron</a>
+						</p>
+						<p class="fragment" style="text-align: left;">オープンソース</p>
+					</section>
+				</section>
+
+				<section id="p3">
+					<section>
+						<h3 style="text-align: left;">Webの技術が使われている</h3>
+						<div class="fragment" style="text-align: left;">
+						<ul>
+							<li style="text-align: left;">HTML</li>
+							<li style="text-align: left;">CSS</li>
+							<li style="text-align: left;">JavaScript</li>
+						</ul>
+						<p class="fragment" style="text-align: left;">
+							最新版は、Electron: v0.34.0<br />
+							Node: 4.1.1<br />
+							Chromium: 45.0.2454.85<br />
+							V8: 4.5.103.29
+						</p>
+						<p class="fragment" style="text-align: left;">
+							<small>v0.34からApp Storeの審査に通せるようになったとのこと！</small>
+						</p>
+					</section>
+				</section>
+
+				<section id="p4">
+					<section>
+						<h3>イメージ</h3>
+						<img src="images/electron_image.jpg" width="auto" height="480" alt="" />
+					</section>
+				</section>
+
+				<section id="p5">
+					<section>
+						<h3>サンプルアプリケーション</h3>
+						<div class="fragment">
+							<img src="images/app_cap.jpg" width="500" height="300" alt="" />
+							<p>都市名を入力すると天気予報を表示するアプリ...</p>
+						</div>
+						<div class="p7_block fragment" style="text-align: left;">
+							<p>ソースコード<br />
+								<a href="https://github.com/yuw27b/electron-sample-app" target="_blank">https://github.com/yuw27b/electron-sample-app</a>
+							</p>
+						</div>
+					</section>
+				</section>
+
+				<section id="p6">
+					<section>
+						<h3>ファイル構成</h3>
+						<div style="text-align: left;">
+							<ul>
+								<li>package.json</li>
+								<li>main.js</li>
+								<li>index.html</li>
+								<li>style.css</li>
+								<li>app.js</li>
+							</ul>
+						</div>
+						<p class="fragment" style="text-align: left;">
+							Webサイトとしてのシングルページアプリケーションを作るのとほぼ同じ。<br />
+							ライブラリも好きなものを使える。
+						</p>
+					</section>
+				</section>
+
+				<section id="p7">
+					<section>
+						<h3>参考</h3>
+						<p style="text-align: left;">※開発を始める方法は色々あるので一例です。</p>
+						<div class="p7_block" style="text-align: left;">
+							<p><small>スケルトンをインストール：</small></p>
+							<pre><code>npm install electron-prebuilt -g</code></pre>
+						</div>
+						<div class="p7_block" style="text-align: left;">
+							<p><small>配布用パッケージの作成：</small></p>
+							<pre><code>electron-packager ./ SampleApp --platform=all --arch=all --version=0.34.3</code></pre>
+							<p>
+								<small>プラットフォームやバージョンの指定については、
+								<a href="https://github.com/maxogden/electron-packager" target="_blank">https://github.com/maxogden/electron-packager</a>
+								を参照。プラットフォームが多いと時間はかかります。
+								</small>
+							</p>
+						</div>
+					</section>
+				</section>
+
+				<section id="p8">
+					<section>
+						<h3>END</h3>
+						<p>ありがとうございました</p>
+					</section>
+				</section>
+			</div><!--/.slides-->
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
