@@ -1,0 +1,101 @@
+body, .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+	font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;
+	text-transform: none;
+	color: #444;
+	font-size: 20px;
+	line-height: 1.6;
+}
+
+.reveal .slides {
+	padding: 0 20px !important;
+	background: #F0F0F0;
+}
+
+.reveal h1 {
+	font-size: 40px;
+}
+
+.reveal h2 {
+	font-size: 36px;
+}
+
+.reveal h3 {
+	font-size: 32px;
+}
+
+.reveal h4 {
+	font-size: 28px;
+}
+
+.reveal p, .reveal ul > li, .reveal ol > li {
+	font-size: 22px;
+}
+
+.reveal a {
+	color: #DB7BB1;
+}
+
+.reveal small {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.reveal section img {
+	border: 0;
+}
+
+.reveal .controls .navigate-left, .reveal .controls .navigate-left.enabled {
+	border-right-color: #DB7BB1;
+}
+
+.reveal .controls .navigate-right, .reveal .controls .navigate-right.enabled {
+	border-left-color: #DB7BB1;
+}
+
+.reveal .controls .navigate-up, .reveal .controls .navigate-up.enabled {
+	border-bottom-color: #DB7BB1;
+}
+
+.reveal .controls .navigate-down, .reveal .controls .navigate-down.enabled {
+	border-top-color: #DB7BB1;
+}
+
+
+.mt10 {
+	margin-top: 10px !important;
+}
+
+.mt20 {
+	margin-top: 20px !important;
+}
+
+.mt30 {
+	margin-top: 30px !important;
+}
+
+.mt50 {
+	margin-top: 50px !important;;
+}
+
+
+.fa {
+	color: #64C99B;
+	font-size: 1.5em;
+}
+
+
+span.p2_place {
+	display: inline-block;
+	text-align: center;
+	vertical-align: top;
+}
+
+.p2_place + .fa {
+	display: inline-block;
+	vertical-align: top;
+}
+
+/*baseColor: #6BBED5
+subColor: #DB7BB1
+subColor: #64C99B
+subColor: #FBE481*/
