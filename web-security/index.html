@@ -42,35 +42,172 @@
 				</section>
 
 				<section id="p2">
-					<section>
-						<h2>自己紹介</h2>
-						<h4 class="fragment">
-							<span class="p2_place">ECサイト運営<br /><small>[東京]</small></span>
-							<i class="fa fa-truck fa-flip-horizontal" aria-hidden="true"></i>
-							<span class="p2_place">非常勤エンジニア＋フリーランス<br /><small>[新潟]</small></span>
-						</h4>
-						<hr class="fragment" />
-						<h4 class="fragment mt10">最近のお仕事</h4>
-						<div class="fragment" style="text-align: left;">
-							<h5 class="mt10">SPA＋なWebサービスの制作</h5>
-							<ul>
-								<li>データからグラフを描画するサービス</li>
-								<li>データやファイルを送ってもらってデータベースを作るサービス</li>
-							</ul>
-							<h5 class="mt10">技術面</h5>
-							<ul>
-								<li>JavaScript[backbone.js/React.js/Node.js]</li>
-								<li>Ruby、PHP</li>
-								<li>MySQL、Neo4j、RDF</li>
-							</ul>
-							<p class="fragment">サービスのサーバ管理までやることも</p>
-							<p class="fragment">HTML＋CSS＋JavaScriptのコーディング</p>
-						</div>
-						<p class="fragment">・・・などをやっています。<small>浅くもなく広くもないけど極めてもいない感じです。</small></p>
-					</section>
+					<h2>自己紹介</h2>
+					<h4 class="fragment">
+						<span class="p2_place">ECサイト運営<br /><small>[東京]</small></span>
+						<i class="fa fa-truck fa-flip-horizontal" aria-hidden="true"></i>
+						<span class="p2_place">非常勤エンジニア＋フリーランス<br /><small>[新潟]</small></span>
+					</h4>
+					<hr class="fragment" />
+					<h4 class="fragment mt10">最近のお仕事</h4>
+					<div class="fragment" style="text-align: left;">
+						<h5 class="mt10">SPA＋なWebサービスの制作</h5>
+						<ul>
+							<li>データからグラフを描画するサービス</li>
+							<li>データやファイルを送ってもらってデータベースを作るサービス</li>
+						</ul>
+						<h5 class="mt10">技術面</h5>
+						<ul>
+							<li>JavaScript[backbone.js/React.js/Node.js]</li>
+							<li>Ruby、PHP</li>
+							<li>MySQL、Neo4j、RDF</li>
+						</ul>
+						<p class="fragment">サービスのサーバ設定・管理</p>
+						<p class="fragment">HTML＋CSS＋JavaScriptのコーディング</p>
+					</div>
+					<p class="fragment" style="text-align: right;"><small>・・・などをやっています。</small></p>
 				</section>
-			</div>
-		</div>
+
+				<section id="p3">
+					<div class="fragment">
+						<h2>今日のテーマ</h2>
+						<h1>Webサービスのセキュリティ対策</h1>
+					</div>
+					<hr />
+					<div class="fragment mt50">
+						<ul>
+							<li>JavaScriptでHTMLを吐き出したり、フォームデータを扱ったり</li>
+							<li>Cookieを使う</li>
+							<li>サーバとAjaxでやりとり</li>
+						</ul>
+						<p>というようなWebサービスのセキュリティについて、実際にやったことをお話します。</p>
+					</div>
+					<div class="fragment">
+						<p>また、<strong>Content Security Policy</strong>の仕様について気になっていた点を整理しました。</p>
+					</div>
+				</section>
+
+				<section id="p4">
+					<h2 class="fragment">サーバでやったこと</h2>
+					<hr />
+					<ul class="fragment mt50">
+						<li>
+							HTTPSを使う<br />
+							<i class="fa fa-angle-right" aria-hidden="true"></i> 証明書は<a href="https://letsencrypt.org/" target="_blank">Let's Encrypt</a>で取得しました
+						</li>
+						<li class="fragment mt20">
+							SSL暗号化スイート<br />
+							<i class="fa fa-angle-right" aria-hidden="true"></i> すでに安全でなくなっている暗号化アルゴリズムは除外しました<br />
+							参考：<br />
+							<a href="https://wiki.mozilla.org/Security/Server_Side_TLS" target="_blank">https://wiki.mozilla.org/Security/Server_Side_TLS</a>
+							<br />
+							<a href="https://mozilla.github.io/server-side-tls/ssl-config-generator/" target="_blank">https://mozilla.github.io/server-side-tls/ssl-config-generator/</a>
+						</li>
+						<li class="fragment mt20">
+							ウイルスチェック<br />
+							ファイルがアップロードされたらすぐにチェック。感染ファイルは削除する。<br />
+							<i class="fa fa-angle-right" aria-hidden="true"></i> Linux上で<a href="https://www.clamav.net/" target="_blank">ClamAV</a>がサービス中。
+						</li>
+					</ul>
+				</section>
+
+				<section id="p5">
+					<h2 class="fragment">クリックジャッキング対策</h2>
+					<hr />
+					<p class="fragment mt30">
+						HTTPヘッダに<strong>X-Frame-Options:SAMEORIGIN</strong>を追加
+					</p>
+					<p class="fragment mt30" style="text-align: left;">
+						外部のサイトから、自サイトのコンテンツをiframeで読み込みことができなくなります。<br />
+						参考：<a href="https://developer.mozilla.org/ja/docs/Web/HTTP/X-Frame-Options" target="_blank">https://developer.mozilla.org/ja/docs/Web/HTTP/X-Frame-Options</a>
+					</p>
+					<p class="fragment mt20" style="text-align: left;">
+						現在この仕様を策定しているのはIETFで<a href="https://tools.ietf.org/html/rfc7034" target="_blank">RFC7034</a>として公開されています。<br />
+						Content security policyとの併用が好ましいとされており、さらに将来的にはCSPに内包される予定のようです。
+					</p>
+					<img class="fragment mt10" src="images/x-frame_devtool.png" alt="" />
+				</section>
+
+				<section id="p6">
+					<h2 class="fragment">Cookie関連でやったこと</h2>
+					<hr />
+					<ul class="fragment mt50" style="text-align: left;">
+						<li>&quot;Secure&quot;を指定してSSL環境でのみCookieを発行する</li>
+						<li class="fragment mt20">&quot;HTTPonly&quot;を指定してJavaScriptからのCookieの読み取りを許可しない</li>
+					</ul>
+					<img class="fragment mt30" src="images/cookie_devtool.png" alt="" />
+				</section>
+
+				<section id="p7">
+					<h2 class="fragment">Content Security Policy [CSP]</h2>
+					<hr />
+					<p class="fragment mt30" style="text-align: left;">JavaScript、CSS、画像、フォント等(*)のコンテンツの外部からの読み込みを制御することができます。</p>
+					<p class="fragment mt30" style="text-align: left;">例：<br />
+						<strong>
+							default-src 'self';<br />
+							script-src 'self' 'unsafe-eval';<br />
+							style-src 'self' 'unsafe-inline';<br />
+							font-src 'self' https://fonts.gstatic.com;<br />
+							img-src 'self' https://i.creativecommons.org https://licensebuttons.net;
+						</strong>
+					</p>
+					<ul class="fragment mt20" style="text-align: left;">
+						<li>デフォルトでは外部からは何も読み込みません</li>
+						<li>JavaScriptのevalの使用を許可します</li>
+						<li>CSSは外部からは読み込みません・HTML内のstyleの記述は許可します</li>
+						<li>フォントは外部から読み込みません・「https://fonts.gstatic.com」からの読み込みは例外として許可します</li>
+						<li>画像は外部から読み込みません・列記したオリジンからの読み込みは例外として許可します</li>
+					</ul>
+					<p class="fragment"><small>*オーディオやビデオなども含まれます。</small></p>
+				</section>
+
+				<section id="p7">
+					<h2 class="fragment">仕様</h2>
+					<hr />
+				</section>
+
+				<section id="p8">
+					<h2 class="fragment">推奨設定</h2>
+					<h3 class="fragment mt20"><strong>default-src 'self';</strong></h3>
+					<p class="fragment mt20" style="text-align: left;">
+						「unsafe-eval」、「unsafe-inline」はどちらも、XSSの可能性があるので注意、となっています。
+					</p>
+					<div class="fragment mt50">
+						<p>現実</p>
+						<ul tyle="text-align: left;">
+							<li class="mt10">HTML内にちょっとしたCSSを書き出すJSライブラリはたくさんある</li>
+							<li class="mt10">JSテンプレートエンジンには「eval」を使用したものが多い<small>（Handlebarsあたりは大丈夫みたいです）</small></li>
+							<li class="mt10">Google AnalyticsのJSコードを&lt;/body&gt;直前に貼りつけたら「unsafe-inline」・・・</li>
+							<li class="mt10">CDNからライブラリを読み込むごとに、例外に追加</li>
+						</ul>
+					</div>
+					<p class="fragment mt30">結果として、けっこう長いコードができあがり、果たしてこれで安全なのかと不安になります。</p>
+				</section>
+
+				<section id="p9">
+					<h2 class="fragment">SCPは長くなるもの？</h2>
+					<hr />
+					<img class="fragment mt20" src="images/scp_sample.png" width="972" height="534">
+				</section>
+
+				<section id="p10">
+					<h2 class="fragment">本当にこれで安全？</h2>
+					<hr />
+					<div class="fragment clearfix">
+						<div class="colLeft">
+							<p class="fragment" style="text-align: left;">Googleのエンジニアチームが2016年に発表した論文より：</p>
+							<ul class="fragment" style="text-align: left;">
+								<li></li>
+							</ul>
+						</div>
+						<div class="colRight">
+							<img src="images/paper.png" alt="" />
+						</div>
+					</div>
+				</section>
+
+			</div><!--/.slides-->
+		</div><!--/.reveal-->
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>

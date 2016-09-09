@@ -7,8 +7,13 @@ body, .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
 }
 
 .reveal .slides {
-	padding: 0 20px !important;
+	border-left: solid 20px #F0F0F0;
+	border-right: solid 20px #F0F0F0;
 	background: #F0F0F0;
+}
+
+.reveal .slides section {
+	padding: 10px 0;
 }
 
 .reveal h1 {
@@ -83,6 +88,10 @@ body, .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
 	font-size: 1.5em;
 }
 
+strong {
+	color: #64C99B;
+}
+
 
 span.p2_place {
 	display: inline-block;
@@ -93,6 +102,25 @@ span.p2_place {
 .p2_place + .fa {
 	display: inline-block;
 	vertical-align: top;
+}
+
+.clearfix:before, .clearfix:after {
+	content: "";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.colLeft {
+	width: 60%;
+	float: left;
+}
+
+.colRight {
+	width: 35%;
+	float: right;
 }
 
 /*baseColor: #6BBED5
