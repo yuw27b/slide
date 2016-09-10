@@ -155,57 +155,106 @@
 						<li>デフォルトでは外部からは何も読み込みません</li>
 						<li>JavaScriptのevalの使用を許可します</li>
 						<li>CSSは外部からは読み込みません・HTML内のstyleの記述は許可します</li>
-						<li>フォントは外部から読み込みません・「https://fonts.gstatic.com」からの読み込みは例外として許可します</li>
-						<li>画像は外部から読み込みません・列記したオリジンからの読み込みは例外として許可します</li>
+						<li>フォントは外部から読み込みません・「https://fonts.gstatic.com」からの読み込みは例外として許可します（ホワイトリスト）</li>
+						<li>画像は外部から読み込みません・列記したドメインからの読み込みは例外として許可します</li>
 					</ul>
-					<p class="fragment"><small>*オーディオやビデオなども含まれます。</small></p>
-				</section>
-
-				<section id="p7">
-					<h2 class="fragment">仕様</h2>
-					<hr />
+					<p class="fragment" style="text-align: right;"><small>*オーディオやビデオなども含まれます。</small></p>
 				</section>
 
 				<section id="p8">
+					<div>
+						<p style="text-align: left;">設定すると、HTTPヘッダーに以下のように追加されます：</p>
+						<img src="images/csp_practical.png" alt="" />
+						<p class="mt20" style="text-align: left;">
+							Internet Explorer(10, 11)は、CSPに対応していないので、代わりに<strong>X-Content-Security-Policy</strong>を使用します。<br />
+							仕様にはほぼ互換性があるので、同じ指定を2回書くことになります。
+						</p>
+					</div>
+				</section>
+
+				<section id="p9">
+					<h2>仕様</h2>
+					<hr />
+					<p>CSPはW3Cで仕様策定が行われています。</p>
+					<ul class="mt20">
+						<li><a href="https://www.w3.org/TR/CSP1/" target="_blank">Content Security Policy Level 1</a>・・・勧告候補 → Level2ができたので今後の更新はなし</li>
+						<li class="mt10"><a href="https://www.w3.org/TR/CSP2/" target="_blank">Content Security Policy Level 2</a>・・・勧告候補
+							<p class="mt10">Level 1から追加された主な仕様：</p>
+							<ul>
+								<li>HTMLのメタタグでもポリシーの指定ができるようになる</li>
+								<li>X-Frame-Optionsを取り込み</li>
+								<li>nonce-hashの利用</li>
+								<li>現状はChromeとFirefoxが対応（FFは一部抜けている仕様もある）</li>
+							</ul>
+						</li>
+						<li class="mt10"><a href="https://www.w3.org/TR/CSP3/" target="_blank">Content Security Policy Level 3</a>・・・草案</li>
+					</ul>
+				</section>
+
+				<section id="p10">
 					<h2 class="fragment">推奨設定</h2>
+					<hr />
 					<h3 class="fragment mt20"><strong>default-src 'self';</strong></h3>
 					<p class="fragment mt20" style="text-align: left;">
 						「unsafe-eval」、「unsafe-inline」はどちらも、XSSの可能性があるので注意、となっています。
 					</p>
 					<div class="fragment mt50">
-						<p>現実</p>
+						<p><strong>現実</strong></p>
 						<ul tyle="text-align: left;">
 							<li class="mt10">HTML内にちょっとしたCSSを書き出すJSライブラリはたくさんある</li>
 							<li class="mt10">JSテンプレートエンジンには「eval」を使用したものが多い<small>（Handlebarsあたりは大丈夫みたいです）</small></li>
 							<li class="mt10">Google AnalyticsのJSコードを&lt;/body&gt;直前に貼りつけたら「unsafe-inline」・・・</li>
-							<li class="mt10">CDNからライブラリを読み込むごとに、例外に追加</li>
+							<li class="mt10">CDNからライブラリを読み込むごとに、ホワイトリストに追加</li>
 						</ul>
 					</div>
 					<p class="fragment mt30">結果として、けっこう長いコードができあがり、果たしてこれで安全なのかと不安になります。</p>
 				</section>
 
-				<section id="p9">
-					<h2 class="fragment">SCPは長くなるもの？</h2>
+				<section id="p11">
+					<h2 class="fragment">CSPは長い！</h2>
 					<hr />
-					<img class="fragment mt20" src="images/scp_sample.png" width="972" height="534">
+					<img class="fragment mt20" src="images/csp_sample.png" width="972" height="534">
 				</section>
 
-				<section id="p10">
+				<section id="p12">
 					<h2 class="fragment">本当にこれで安全？</h2>
 					<hr />
 					<div class="fragment clearfix">
 						<div class="colLeft">
 							<p class="fragment" style="text-align: left;">Googleのエンジニアチームが2016年に発表した論文より：</p>
 							<ul class="fragment" style="text-align: left;">
-								<li></li>
+								<li class="mt10">Googleの検索用インデックスに登録されている約1000億サイトから、1,680,867のホストに指定されていた26,011種類のCSP policyを分析</li>
+								<li class="mt10">その結果、94.68%のポリシーはスクリプトの実行阻止に効果がなく、99.34%のホストでXSSの危険はなくなっていなかった。</li>
+								<li class="mt10">ホワイトリストに危険なドメインが含まれているケースもあり、75.81%のポリシーでホワイトリスト経由の攻撃が可能だった。</li>
 							</ul>
 						</div>
 						<div class="colRight">
 							<img src="images/paper.png" alt="" />
 						</div>
 					</div>
+					<p class="fragment mt20"><small>簡潔にまとめると</small><strong>CSP Lv2からのnonce-hashとCSP Lv3からの「strict-dynamic」の指定が有効</strong></p>
 				</section>
 
+				<section id="p13">
+					<h2>結局どうすれば・・・？</h2>
+					<hr />
+					<p>※個人的見解です</p>
+					<ul class="mt20">
+						<li>「完璧な設定」はおそらく存在しません。新しい攻撃手法も出てくるかもしれません。<br />
+							仕様もどんどん追加されている状態なので、Level 1では不十分なのは明白なのでしょう。
+						</li>
+						<li class="mt10">とはいえ、「unsafe-inline」だけでも、「うっかりエスケープ忘れた！」くらいは防げます。</li>
+						<li class="mt10">何もやらないよりは少しでもやったほうがいい！</li>
+						<li class="mt10">将来の仕様やブラウザの対応状況のチェックは必要。
+							<small>（これが面倒なのは承知なので、こんな資料を作った手前、ブログに書くくらいはしたいと思っています。）</small>
+						</li>
+						<li class="mt10">CSPだけでなく、基本的なパーミッション設定やHTTPSなども確実に！</li>
+					</ul>
+				</section>
+
+				<section id="p14">
+					<h2>END</h2>
+				</section>
 			</div><!--/.slides-->
 		</div><!--/.reveal-->
 
