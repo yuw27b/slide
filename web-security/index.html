@@ -141,7 +141,7 @@
 				<section id="p7">
 					<h2 class="fragment">Content Security Policy [CSP]</h2>
 					<hr />
-					<p class="fragment mt30" style="text-align: left;">JavaScript、CSS、画像、フォント等(*)のコンテンツの外部からの読み込みを制御することができます。</p>
+					<p class="fragment mt30" style="text-align: left;">JavaScript、CSS、画像、フォント、XHRなど(*)のコンテンツの外部からの読み込みを制御することができます。</p>
 					<p class="fragment mt30" style="text-align: left;">例：<br />
 						<strong>
 							default-src 'self';<br />
@@ -221,7 +221,7 @@
 					<hr />
 					<div class="fragment clearfix">
 						<div class="colLeft">
-							<p class="fragment" style="text-align: left;">Googleのエンジニアチームが2016年に発表した論文より：</p>
+							<p class="fragment" style="text-align: left;">Googleのエンジニアチームが2016年に<a href="https://static.googleusercontent.com/media/research.google.com/ja//pubs/archive/45542.pdf" target="_blank">発表した論文</a>より：</p>
 							<ul class="fragment" style="text-align: left;">
 								<li class="mt10">Googleの検索用インデックスに登録されている約1000億サイトから、1,680,867のホストに指定されていた26,011種類のCSP policyを分析</li>
 								<li class="mt10">その結果、94.68%のポリシーはスクリプトの実行阻止に効果がなく、99.34%のホストでXSSの危険はなくなっていなかった。</li>
