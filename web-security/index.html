@@ -203,7 +203,10 @@
 						<ul tyle="text-align: left;">
 							<li class="mt10">HTML内にちょっとしたCSSを書き出すJSライブラリはたくさんある</li>
 							<li class="mt10">JSテンプレートエンジンには「eval」を使用したものが多い<small>（Handlebarsあたりは大丈夫みたいです）</small></li>
-							<li class="mt10">Google AnalyticsのJSコードを&lt;/body&gt;直前に貼りつけたら「unsafe-inline」・・・</li>
+							<li class="mt10">
+								Google AnalyticsのJSコードを&lt;/body&gt;直前に貼りつけたら「unsafe-inline」にひっかかる・・・<br />
+								<small>「analytics.js」のようなファイルに保存して「&lt;script&gt;&lt;/script&gt;」で読み込めばOKです。ちょっと面倒ですが・・・</small>
+							</li>
 							<li class="mt10">CDNからライブラリを読み込むごとに、ホワイトリストに追加</li>
 						</ul>
 					</div>
@@ -243,9 +246,13 @@
 						<li>「完璧な設定」はおそらく存在しません。新しい攻撃手法も出てくるかもしれません。<br />
 							仕様もどんどん追加されている状態なので、Level 1では不十分なのは明白なのでしょう。
 						</li>
-						<li class="mt10">とはいえ、「unsafe-inline」だけでも、「うっかりエスケープ忘れた！」くらいは防げます。</li>
+						<li class="mt10">とはいえ、「script-src 'self';」だけでも、「うっかりエスケープ忘れた！」くらいは防げます。</li>
+						<li class="mt10">
+							基本的にはJavaScriptのインライン実行とevalは回避、外部リソースはURLをホワイトリストに入れるのがいいと思います！<br />
+							<small>現実と折り合いをつけるのはちょっと大変ですが・・・</small>
+						</li>
 						<li class="mt10">何もやらないよりは少しでもやったほうがいい！</li>
-						<li class="mt10">将来の仕様やブラウザの対応状況のチェックは必要。
+						<li class="mt10">現在不十分なところはまだまだ仕様策定中なので、将来の仕様やブラウザの対応状況のチェックは必要。
 							<small>（これが面倒なのは承知なので、こんな資料を作った手前、ブログに書くくらいはしたいと思っています。）</small>
 						</li>
 						<li class="mt10">CSPだけでなく、基本的なパーミッション設定やHTTPSなども確実に！</li>
