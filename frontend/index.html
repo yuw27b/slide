@@ -48,25 +48,26 @@
 					<h1 class="pageHeader">Frontendの定義</h1>
 					<ul class="mt30" style="text-align: left;">
 						<li>Webサイト/Webアプリケーションの中のブラウザで動く部分</li>
-						<li>だいたいHTML/CSS/JavaScriptで作られている</li>
-						<li>JavaScriptでサーバからデータを取得して（Ajax）、HTMLの一部を書き換えたり</li>
+						<li>←→サーバサイド・バックエンド</li>
+						<li>だいたいHTML/CSS/JavaScriptで作る</li>
+						<li>JavaScriptがサーバからデータを取得して(Ajax)、HTMLの一部を書き換えたり</li>
 						<li>ユーザーのアクションをもとにJavaScriptが何かしたり</li>
 					</ul>
 					<div class="mt20">
 						<h3>背景</h3>
-						<p>サーバ側でHTMLを構築していて、ブラウザではそれを表示するだけだった時代</p>
+						<p>サーバ側でHTMLを構築して、ブラウザではそれを表示するだけだった時代</p>
 						<p><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></p>
-						<p>ブラウザの進化やHTML5周辺APIの誕生により、ブラウザでできることが増えた</p>
+						<p>ブラウザの進化やHTML5周辺APIの誕生により、フロント側でできることが増えた</p>
 						<p><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></p>
-						<p>UIの改善やモバイル環境への対応のために、フロントエンドで様々な処理をするようになった</p>
+						<p>UIの改善やモバイル環境への対応のために、フロントで様々な処理をするようになった</p>
 					</div>
 				</section><!--/#p2-->
 
 				<section id="p3">
-					<h1 class="pageHeader">よく使われる技術</h1>
+					<h1 class="pageHeader">よく使われる用語・技術</h1>
 					<ul class="mt30" style="text-align: left;">
-						<li class="mt10">gulp, webpack, CommonJS</li>
 						<li class="mt10">ES6, ES7, browserify, babel</li>
+						<li class="mt10">gulp, webpack, CommonJS</li>
 						<li class="mt10">Sass, PostCSS</li>
 						<li class="mt10">AWS, BaaS</li>
 						<li class="mt10">GitHub, CI, Test</li>
@@ -77,44 +78,100 @@
 					<h1 class="pageHeader">JavaScript frameworks for frontend</h1>
 					<p class="mt30">フロントエンドで様々な処理をする === JavaScriptのコード量の増加</p>
 					<p><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></p>
-					<p>モジュール化や設計をしっかりしないとプログラムが破綻する</p>
-					<h3 class="mt50">フレームワーク戦争の時代</h3>
-					<div class="mt20">framework logos...</div>
+					<p>モジュール化や設計をきちんとしないとプログラムが破綻する</p>
+					<h4 class="mt20">フレームワーク戦争の時代</h4>
+					<img src="./images/fig01.png" width="384" height="288" alt="" />
+					<p class="mt10" style="text-align:right; ">
+						<small><a href="https://github.com/showcases/front-end-javascript-frameworks" target="_blank">https://github.com/showcases/front-end-javascript-frameworks</a></small><br />
+						<small><a href="https://medium.freecodecamp.com/overcoming-javascript-framework-fatigue-741dac9370ee#.4r6ik52o0" target="_blank">https://medium.freecodecamp.com/overcoming-javascript-framework-fatigue-741dac9370ee#.4r6ik52o0</a></small>
+					</p>
 				</section><!--/#p4-->
 
 				<section id="p5">
-					<h1 class="pageHeader">MVWTF</h1>
+					<h1 class="pageHeader">MV*なフレームワーク</h1>
 					<ul class="mt30">
 						<li>Backbone.js</li>
-						<li>Mithril</li>
+						<li>Ember.js</li>
 						<li>Knockout.js</li>
+						<li>AngularJS(v1.x)</li>
 					</ul>
-					<div class="mt20">
-						Fig
+					<div class="mt10">
+						<img src="./images/fig02.png" width="680" height="440" alt="" />
 					</div>
 				</section><!--/#p5-->
 
 				<section id="p6">
-					<h1 class="pageHeader">Data binding</h1>
+					<h1 class="pageHeader">MV*の次のアプローチ</h1>
 					<ul class="mt30">
-						<li>React.js</li>
-						<li>Angular.js</li>
+						<li>React.js(Virtual DOM) + Flux</li>
+						<li>Angular2</li>
+						<li>Vue.js</li>
 					</ul>
-					<p>Virtual DOM</p>
+					<div class="mt10">
+						<img src="./images/fig03.png" width="680" height="460" alt="" />
+					</div>
 				</section><!--/#p6-->
 
 				<section id="p7">
-					<h1 class="pageHeader">React / Angular / Vue</h1>
+					<div class="mt30">
+						<p style="text-align: center;"><strong>コンポーネント志向・データフローを一方通行に・Virtual DOM</strong></p>
+						<ul style="text-align: left;">
+							<li>データが変化したら自動的に（すべての）ビューが更新される === データとビューの乖離が起こらない</li>
+							<li>すべてのビューの更新ではあっても、Virtual DOMによって自動的に差分のみが再レンダリングされるので、動作は重たくならない。</li>
+							<li>データは親コンポーネントから子コンポーネントの方向にしか渡らず、子と子は疎結合。再利用やテストがやりやすい。</li>
+							<li>MV*でModelがやっていた処理をどこでやるのかについては、諸説ある。（特にReact.js）</li>
+						</ul>
+					</div>
+					<div class="mt50">
+						<p><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></p>
+						<p>ここまでだいぶ強引にまとめたので、<br />それぞれフレームワークの特徴については、興味があったら調べてみてください！</p>
+						<p>MV*が適したアプリケーションももちろんあります。</p>
+					</div>
 				</section><!--/#p7-->
 
 				<section id="p8">
 					<h1 class="pageHeader">CSS is too fragile</h1>
+					<div class="mt30">
+						<p style="text-align: left;">CSSには名前空間がなく、すぐに混沌が発生します。</p>
+						<p style="text-align: left;">
+							<a href="https://www.w3.org/wiki/WebComponents/" target="_blank">Web components</a>や<a href="https://www.w3.org/TR/shadow-dom/" target="_blank">Shadow DOM</a>などの仕様が確定すればカプセル化が可能になりますが、ブラウザに実装されるのは当分先です。
+						</p>
+					</div>
+					<p><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></p>
+					<div class="mt20">
+						<h4>そこで、できるだけ混沌を生まない記述手法が模索されてきています。</h4>
+					</div>
+					<ul>
+						<li><a href="http://getbem.com/" target="_blank">BEM</a>（<a href="https://app.codegrid.net/entry/bem-basic-1" target="_blank">参考</a>）</li>
+						<li><a href="https://smacss.com/" target="_blank">SMACCS</a></li>
+						<li><a href="http://ecss.io/" target="_blank">ECSS</a></li>
+						<li>etc...</li>
+					</ul>
+					<p class="mt20">
+						<small>ある程度以上の規模のCSSを書くなら、どれでもいいので何かしらの手法を取り入れるのがいいと思います。個人的にはBEMです。</small>
+					</p>
+					<hr />
+					<div class="mt20">
+						<p style="text-align: right;">・・・というような分野の人たちの集まりに行ってきました&nbsp;&nbsp;<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></p>
+					</div>
 				</section><!--/#p8-->
 
 				<section id="p9">
 					<h1 class="pageHeader pageHeader-if">INSIDE FRONTEND</h1>
-					<h4 class="mt30">2017.02.25<br />Yahoo! JAPAN（東京ガーデンテラス紀尾井町）</h4>
-					<div class="mt30">pics...</div>
+					<h4 class="mt20">2017.02.25<br />Yahoo! JAPAN（東京ガーデンテラス紀尾井町）</h4>
+					<div class="mt30 clearfix">
+						<div class="colLeft" style="text-align: center;"><img src="./images/fig04.png" width="284" height="380" alt="" /></div>
+						<div class="colRight">
+							<p style="text-align: left;">Yahoo!の本社内でした</p>
+							<p style="text-align: left;">参加者は350人くらい（抽選）</p>
+							<img src="./images/fig05.png" width="320" height="240" alt="" />
+						</div>
+					</div>
+					<p class="mt10" style="text-align: right;"><small>写真は公式Twitterから拝借</small></p>
+					<hr />
+					<div class="mt10">
+						<p style="text-align: right;">以降、当日のメモの抜粋です&nbsp;&nbsp;<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></p>
+					</div>
 				</section><!--/#p9-->
 
 				<section id="p10">
@@ -129,7 +186,7 @@
 						<li>通知の許可を求めるUXが洗練されていない問題</li>
 					</ul>
 					<p class="mt30 refLink">
-						<a href="https://speakerdeck.com/jxck/web-over-serviceworker" target="_blank">https://speakerdeck.com/jxck/web-over-serviceworker</a>
+						スライド：<a href="https://speakerdeck.com/jxck/web-over-serviceworker" target="_blank">https://speakerdeck.com/jxck/web-over-serviceworker</a>
 					</p>
 				</section><!--/#p10-->
 
@@ -146,7 +203,7 @@
 						<li><a href="https://www.sketchapp.com/" target="_blank">Sketch</a>がWeb用のデザインツールとしてかなり定着してきている印象を受けました。</li>
 					</ul>
 					<p class="mt30 refLink">
-						<a href="https://speakerdeck.com/1000ch/component-of-web-frontend" target="_blank">https://speakerdeck.com/1000ch/component-of-web-frontend</a>
+						スライド：<a href="https://speakerdeck.com/1000ch/component-of-web-frontend" target="_blank">https://speakerdeck.com/1000ch/component-of-web-frontend</a>
 					</p>
 				</section><!--/#p11-->
 
@@ -163,7 +220,7 @@
 						<li>Caching(memcached) -> Cache Hit Rate 73.66%</li>
 					</ul>
 					<p class="mt30 refLink">
-						<a href="https://speakerdeck.com/herablog/ameburo-2016-shi-lu-ameburoriniyuaru275ri-webpahuomansubian" target="_blank">
+						スライド：<a href="https://speakerdeck.com/herablog/ameburo-2016-shi-lu-ameburoriniyuaru275ri-webpahuomansubian" target="_blank">
 							https://speakerdeck.com/herablog/ameburo-2016-shi-lu-ameburoriniyuaru275ri-webpahuomansubian
 						</a>
 					</p>
@@ -190,7 +247,7 @@
 						<li>d3.jsやSVGの特性上できないものは、力技のhackのようなこともしている。・・・ということがわかって嬉しかった。</li>
 					</ul>
 					<p class="mt30 refLink">
-						<a href="http://shimz.me/slide/inside-frontend_1/" target="_blank">http://shimz.me/slide/inside-frontend_1/#/</a>
+						スライド：<a href="http://shimz.me/slide/inside-frontend_1/" target="_blank">http://shimz.me/slide/inside-frontend_1/#/</a>
 					</p>
 				</section><!--/#p14-->
 
@@ -215,7 +272,7 @@
 						<li>validationも両方でかけるべきだが、JSON Schemaをベースにすれば共通のルールになる。</li>
 					</ul>
 					<p class="mt30 refLink">
-						<a href="http://www.slideshare.net/hiroyukianai/json-schema-in-web-frontend-insidefe" target="_blank">
+						スライド：<a href="http://www.slideshare.net/hiroyukianai/json-schema-in-web-frontend-insidefe" target="_blank">
 							http://www.slideshare.net/hiroyukianai/json-schema-in-web-frontend-insidefe
 						</a>
 					</p>
@@ -244,6 +301,9 @@
 						</li>
 					</ul>
 				</section><!--/#p16-->
+				<section id="p17">
+					<h1>END</h1>
+				</section><!--/#p17-->
 			</div><!--/.slides-->
 		</div><!--/.reveal-->
 
