@@ -66,11 +66,12 @@
 				<section id="p3">
 					<h1 class="pageHeader">よく使われる用語・技術</h1>
 					<ul class="mt30" style="text-align: left;">
-						<li class="mt10">ES6, ES7, browserify, babel</li>
-						<li class="mt10">gulp, webpack, CommonJS</li>
+						<li class="mt10">ES6, ES7, Babel</li>
+						<li class="mt10">gulp, webpack, CommonJS, Browserify</li>
 						<li class="mt10">Sass, PostCSS</li>
 						<li class="mt10">AWS, BaaS</li>
 						<li class="mt10">GitHub, CI, Test</li>
+						<li class="mt10">TypeScript, Flowtype</li>
 					</ul>
 				</section><!--/#p3-->
 
@@ -78,7 +79,7 @@
 					<h1 class="pageHeader">JavaScript frameworks for frontend</h1>
 					<p class="mt30">フロントエンドで様々な処理をする === JavaScriptのコード量の増加</p>
 					<p><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></p>
-					<p>モジュール化や設計をきちんとしないとプログラムが破綻する</p>
+					<p>モジュール化や設計をきちんとしないとプログラムが破綻する。</p>
 					<h4 class="mt20">フレームワーク戦争の時代</h4>
 					<img src="./images/fig01.png" width="384" height="288" alt="" />
 					<p class="mt10" style="text-align:right; ">
@@ -114,17 +115,17 @@
 
 				<section id="p7">
 					<div class="mt30">
-						<p style="text-align: center;"><strong>コンポーネント志向・データフローを一方通行に・Virtual DOM</strong></p>
+						<p style="text-align: center;">特徴：<strong>コンポーネント志向・データフローを一方通行に・Virtual DOM</strong></p>
 						<ul style="text-align: left;">
 							<li>データが変化したら自動的に（すべての）ビューが更新される === データとビューの乖離が起こらない</li>
 							<li>すべてのビューの更新ではあっても、Virtual DOMによって自動的に差分のみが再レンダリングされるので、動作は重たくならない。</li>
 							<li>データは親コンポーネントから子コンポーネントの方向にしか渡らず、子と子は疎結合。再利用やテストがやりやすい。</li>
-							<li>MV*でModelがやっていた処理をどこでやるのかについては、諸説ある。（特にReact.js）</li>
+							<li>MV*でModelがやっていた処理をどこでやるのかについては、明確な決まりはない。（特にReact.js）</li>
 						</ul>
 					</div>
 					<div class="mt50">
 						<p><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></p>
-						<p>ここまでだいぶ強引にまとめたので、<br />それぞれフレームワークの特徴については、興味があったら調べてみてください！</p>
+						<p>ここまでだいぶ強引にまとめたので、<br />それぞれフレームワーク・ライブラリの特徴については、興味があったら調べてみてください！</p>
 						<p>MV*が適したアプリケーションももちろんあります。</p>
 					</div>
 				</section><!--/#p7-->
@@ -134,7 +135,7 @@
 					<div class="mt30">
 						<p style="text-align: left;">CSSには名前空間がなく、すぐに混沌が発生します。</p>
 						<p style="text-align: left;">
-							<a href="https://www.w3.org/wiki/WebComponents/" target="_blank">Web components</a>や<a href="https://www.w3.org/TR/shadow-dom/" target="_blank">Shadow DOM</a>などの仕様が確定すればカプセル化が可能になりますが、ブラウザに実装されるのは当分先です。
+							<a href="https://www.w3.org/wiki/WebComponents/" target="_blank">Web components</a>や<a href="https://www.w3.org/TR/shadow-dom/" target="_blank">Shadow DOM</a>などの仕様が確定すればカプセル化が可能になりますが、ブラウザに実装されるのはまだ先です。
 						</p>
 					</div>
 					<p><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></p>
@@ -211,12 +212,12 @@
 					<h1 class="pageHeader pageHeader-if">アメブロ2016: 実録、アメブロフロントリニューアル275日</h1>
 					<ul class="mt30" style="text-align: left;">
 						<li>もともとはJavaで動いていた。コードは45,000行くらい</li>
-						<li>リニューアルで、Server、Clientともにnode.jsに。==Isomorphic</li>
+						<li>リニューアルで、サーバ、フロントエンドともにJavaScriptに。===Isomorphic</li>
 						<li>パフォーマンスが上がり、直帰率なども下がった</li>
-						<li>React flux->Redux BABEL webpack express</li>
+						<li>React Redux(fluxから途中で変更) BABEL webpack express</li>
 						<li>SSR+SPA　初期表示されるメインコンテンツはSSR。</li>
 						<li>ただし、広告などの領域は表示前から確保してあり、挿入後に位置がずれないようにしている。（誤タップ防止）</li>
-						<li>renderToString()が遅い（React16で改善？）</li>
+						<li>renderToString()が遅いのでキャッシュすることに。（React16で改善？）</li>
 						<li>Caching(memcached) -> Cache Hit Rate 73.66%</li>
 					</ul>
 					<p class="mt30 refLink">
@@ -229,9 +230,9 @@
 				<section id="p13">
 					<h1 class="pageHeader pageHeader-if">ReactについてのAsk me anything</h1>
 					<ul class="mt30" style="text-align: left;">
-						<li>Reactはviewのみなので、ビジネスロジックどうするか問題->現状Redux一人勝ち？</li>
-						<li>Reactを使うと、細かいフレームワークをたくさん入れる場合が多いが、ライセンスやアップデートの問題がある。</li>
-						<li>one large frameworkの利点もある。ex.)Angular ->なるべく依存しないような心がけは持っておくべき。</li>
+						<li>Reactはviewのみのライブラリなので、ビジネスロジックどうするか問題->現状Redux一人勝ち？</li>
+						<li>Reactを使うと、細かい周辺ライブラリをたくさん入れる場合が多いが、ライセンスやアップデートの問題がある。</li>
+						<li>なので、Angularのようなone large frameworkのほうが適しているケースもある。いずれにしても安易に依存を増やさないような心がけは持っておくべき。</li>
 						<li>どんなフレームワークでも、工数はあまり変わらないのでは？</li>
 					</ul>
 					<ul class="mt30" style="text-align: left;">
@@ -245,7 +246,7 @@
 						<li><a href="https://vdata.nikkei.com/" target="_blank">日経Visual Data</a>というサービスを作っている方のお話。</li>
 						<li>d3.jsを使用している。それなりに時間をかけて作っている印象（データの収集・整形も入っているから）。</li>
 						<li>d3.jsは手軽にグラフが書ける、というものではない。</li>
-						<li>d3.jsにはブラウザがサポートしていない仕様を補完する機能はない。</li>
+						<li>d3.jsにはブラウザがサポートしていない仕様を補完する機能はない。(!==jQuery)</li>
 						<li>d3.jsやSVGの特性上できないものは、力技のhackのようなこともしている。・・・ということがわかって嬉しかった。<br />z-indexが使えないとか、テキストが折り返さないとか。</li>
 					</ul>
 					<p class="mt30 refLink">
@@ -256,19 +257,19 @@
 				<section id="p15">
 					<h1 class="pageHeader pageHeader-if">JSON Schema in Web Frontend</h1>
 					<ul class="mt30" style="text-align: left;">
-						<li>JSON Schema：JSONの構造をJSONで定義。<a href="http://json-schema.org/implementations.html" target="_blank">IETFに仕様がある</a>。</li>
-						<li>minimum,format,typeなどを定義できる。$refという参照も使える。validationに使う。</li>
-						<li>Hyper-Schema：RESTAPIのエンドポイントの定義に使ったりする。APIドキュメントの自動生成。HTTPクライアントの自動生成などができる。</li>
+						<li>スマホのリッチ広告（動画広告とか）をやっているYahoo!の社内ベンチャーでの導入事例</li>
+						<li>JSON Schemaとは：JSONの構造をJSONで定義。<a href="http://json-schema.org/implementations.html" target="_blank">IETFに仕様がある</a>。</li>
+						<li>minimum,format,typeなどを定義できる。$refという参照も使える。validationに使える。</li>
+						<li>Hyper-Schema：RESTfulAPIのエンドポイントの定義に使える。APIドキュメントの自動生成やHTTPクライアントの自動生成などができる。</li>
 						<li>大体の言語で使える。Rubyでも使える。prmd GEM</li>
-						<li>スマホのリッチ広告をやっている社内ベンチャーでの導入事例</li>
 						<li>
-							メールのやり取りベースで広告（のhtmlタグ）を作っていた。->取引先が増えると、自動化したくなった。<br />
+							この会社では、メールのやり取りベースで広告（のhtmlタグ）を作っていた。->取引先が増えると、自動化したくなった。<br />
 							AWS上で稼働するタグ発行ツールを作った。
 						</li>
-						<li>サーバサイドはRESTfulAPI。golang。フロントはNode.js,BABEL,flow-type,React-Reduxなど</li>
+						<li>サーバサイドはRESTfulAPIをgolangで。フロントはNode.js,Babel,Flowtype,React+Reduxなど</li>
 						<li>フロントとバックの連携のためのドキュメントとしてJSON Schemaを使う。</li>
 						<li>さらにJSON SchemaをベースにAPIのモックが自動生成できるので、バックエンドの実装を待たずにフロントが作れる。</li>
-						<li>JSON Schemaをもとに、JavaScriptでHTMLのformタグを自動生成とvalidationをする。</li>
+						<li>JSON Schemaをもとに、JavaScriptでHTMLのformタグの自動生成とvalidationをする。</li>
 						<li>JSON Schema自体は手書きなので、ちょっと大変。prmdだとymlで書ける。</li>
 						<li>更新時はバックとフロントで同時にリリースが必要なので、APIのバージョンとJSON Schemaのバージョンがsyncすると良さそう。</li>
 						<li>validationも両方でかけるべきだが、JSON Schemaをベースにすれば共通のルールになる。</li>
