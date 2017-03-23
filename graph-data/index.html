@@ -69,7 +69,230 @@
 				</section>
 
 				<section id="p3">
+					<h2>グラフ構造データ</h2>
+					<div class="mt50">
+						<ul>
+							<li>扱うケースはたぶんそんなにない</li>
+							<li>でも扱うことになったらグラフのままデータベースに入れると便利！</li>
+						</ul>
+					</div>
+					<div class="mt50" style="text-align: center;">
+						<i class="fa fa-arrow-circle-down" aria-hidden="true"></i>
+					</div>
+					<div class="mt50">
+						<ul>
+							<li>これRDB・・・？というときの選択肢が増える</li>
+							<li>オープンなグラフデータの存在</li>
+						</ul>
+					</div>
+				</section>
 
+				<section id="p4">
+					<h2>話すこと</h2>
+					<div class="mt30">
+						<ul style="text-align: left;">
+							<li>グラフ構造データとは</li>
+							<li>グラフデータベース</li>
+							<li>オープンなグラフデータ・RDF</li>
+							<li>グラフデータの可視化</li>
+						</ul>
+					</div>
+				</section>
+
+				<section id="p5">
+					<h2>データ構造</h2>
+					<div class="mt30">
+						<ul style="text-align: left;">
+							<li>配列 [スタック/キュー]</li>
+							<li>連想配列 [ハッシュテーブル/ルックアップテーブル]</li>
+							<li>線形リスト</li>
+							<li><strong>木構造</strong></li>
+							<li><strong>グラフ</strong></li>
+						</ul>
+					</div>
+					<p class="mt50" style="text-align: right;">
+						<small>
+							<a href="https://ja.wikipedia.org/wiki/データ構造" target="_blank">https://ja.wikipedia.org/wiki/データ構造</a>
+						</small>
+					</p>
+				</section>
+
+				<section id="p6">
+					<h2>身近にあるグラフ構造</h2>
+					<ul>
+						<li>鉄道路線</li>
+						<li>コンピュータネットワーク</li>
+						<li>家系図</li>
+						<li>人物相関図</li>
+					</ul>
+				</section>
+
+				<section id="p7">
+					<h2>グラフ理論を少しだけ</h2>
+					<ul>
+						<li>ノード（頂点）とエッジ（辺）がある</li>
+						<li>有向グラフと無向グラフがある</li>
+						<li>エッジには重み付けができる</li>
+						<li>単純グラフと多重グラフ</li>
+					</ul>
+				</section>
+
+				<section id="p8">
+					<h2>データベース管理システム</h2>
+					<div class="mt30">
+						<p>RDBMS</p>
+						<p style="text-align: left;">
+							MySQL / PostgreSQL / SQLite / <br />
+							Oracle Database / Microsoft SQL Server<br />
+							etc...
+						</p>
+					</div>
+					<div class="mt30">
+						<p>NoSQL</p>
+						<ul style="text-align: left;">
+							<li>
+								キー・バリュー型・・・Redis / Memcached
+							</li>
+							<li>
+								ソート済みカラム指向・・・Apache Cassandra / Apache HBase
+							</li>
+							<li>
+								ドキュメント指向・・・MongoDB / Apache CouchDB
+							</li>
+							<li>
+								<strong>グラフ型</strong>・・・Neo4j
+							</li>
+						</ul>
+					</div>
+					<p class="mt50" style="text-align: right;">
+						<small>
+							<a href="https://ja.wikipedia.org/wiki/データベース管理システム" target="_blank">https://ja.wikipedia.org/wiki/データベース管理システム</a>
+							<br />
+							<a href="https://ja.wikipedia.org/wiki/NoSQL" target="_blank">https://ja.wikipedia.org/wiki/NoSQL</a>
+						</small>
+					</p>
+				</section>
+
+				<section id="p9">
+					<h2>Neo4j</h2>
+					<div class="mt30">
+						<ul>
+							<li>グラフデータベースの代表的なもの</li>
+							<li><a href="https://neo4j.com/" target="_blank">https://neo4j.com/</a></li>
+							<li>実装はJava</li>
+							<li>Cypher Queryというものでデータの検索・操作をする</li>
+							<li>だいたいの言語のラッパーライブラリが存在する</li>
+						</ul>
+					</div>
+				</section>
+
+				<section id="p10">
+					<h2>導入事例</h2>
+					<ul>
+						<li>ロジスティクス</li>
+						<li>レコメンデーションエンジン</li>
+						<li>科学分野</li>
+						<li>パナマ文書</li>
+					</ul>
+					<p class="mt50" style="text-align: right;">
+						<small>
+							<a href="https://neo4j.com/customers/" target="_blank">https://neo4j.com/customers/</a>
+							<br />
+							<a href="https://medium.com/@c_z/「パナマ文書」解析の技術的側面-d10201bbe195#.8gbo4jc8n" target="_blank">
+								https://medium.com/@c_z/「パナマ文書」解析の技術的側面-d10201bbe195#.8gbo4jc8n
+							</a>
+						</small>
+					</p>
+				</section>
+
+				<section id="p11">
+					<h2>とりあえず使ってみる</h2>
+					<h3>インストール</h3>
+				</section>
+
+				<section id="p12">
+					<h3>データの準備</h3>
+					<table>
+						<tr><td>A</td><td>B</td><td>$30,000</td></tr>
+						<tr><td>A</td><td>C</td><td>$10,000</td></tr>
+						<tr><td>A</td><td>D</td><td>$10,000</td></tr>
+						<tr><td>B</td><td>D</td><td>$50,000</td></tr>
+						<tr><td>D</td><td>E</td><td>$100,000</td></tr>
+						<tr><td>D</td><td>F</td><td>$20,000</td></tr>
+						<tr><td>C</td><td>D</td><td>$30,000</td></tr>
+					</table>
+				</section>
+
+				<section id="p13">
+					<h3>データのロード</h3>
+					<pre>
+						<code></code>
+					</pre>
+					<p style="text-align: right;">
+						<small>コード例はRubyです</small>
+					</p>
+				</section>
+
+				<section id="p14">
+					<h3>Webコンソールで確認してみる</h3>
+					<p>http://localhost:7474にアクセスするとコンソールが表示される</p>
+				</section>
+
+				<section id="p15">
+					<h3>検索してみる</h3>
+					<p>$30,000以上のやりとり</p>
+					<p>$30,000以上のやりとり</p>
+					<p>Aからお金を受け取った人のリスト</p>
+					<p>Aからのお金は最終的にどこへ行ったか(*)</p>
+					<p>Aの知り合いの知り合いのリスト</p>
+				</section>
+
+				<section id="p16">
+					<h3>路線図の場合</h3>
+				</section>
+
+				<section id="p17">
+					<h3>レコメンデーションエンジンの場合</h3>
+				</section>
+
+				<section id="p18">
+					<h2>RDF</h2>
+				</section>
+
+				<section id="p19">
+					<h2>RDFとは何か</h2>
+					<p>W3Cが標準化したWeb上のリソースの記述方式</p>
+					<p>トリプルで表現する<br /><img></p>
+					<p>つまりグラフ</p>
+					<p>同じくW3Cが標準化したSPARQLという言語で検索できる</p>
+					<p class="mt50" style="text-align: right;">
+						<small>
+							<a href="https://ja.wikipedia.org/wiki/Resource_Description_Framework" target="_blank">https://ja.wikipedia.org/wiki/Resource_Description_Framework</a>
+						</small>
+					</p>
+				</section>
+
+				<section id="p20">
+					<h2>データベース化</h2>
+					<ul>
+						<li>データベースはトリプルストアとも呼ばれる</li>
+						<li>Virtuoso / Oracle</li>
+						<li>検索APIはSPARQLエンドポイントと呼んだり</li>
+					</ul>
+				</section>
+
+				<section id="p21">
+					<h2>オープンなSPARQLエンドポイント</h2>
+					https://www.w3.org/wiki/SparqlEndpoints
+				</section>
+
+				<section id="p22">
+					<h2>SPARQLをちょっとだけ紹介</h2>
+				</section>
+
+				<section id="p23">
+					RDFの理想と課題
+					ボキャブラリーの分散、データの分散
 				</section>
 			</div><!--/.slides-->
 		</div><!--/.reveal-->
