@@ -34,61 +34,59 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section id="p1">
-					<h1 style="text-align: left;">グラフ構造データを扱うはなし</h1>
-					<h4 class="mt50" style="text-align: left;">
-						<a href="https://rawcode.net/">Yu Watanabe(@yuw27b)</a><br />2017.03.25 NDS 第51回勉強会
-					</h4>
+				<section id="p1" class="pageBlock">
+					<div class="midBlock">
+						<h1 style="text-align: left;">グラフ構造データを扱うはなし</h1>
+						<h4 class="mt50" style="text-align: left;">
+							<a href="https://rawcode.net/">Yu Watanabe(@yuw27b)</a><br />2017.03.25 NDS 第51回勉強会
+						</h4>
+					</div>
 				</section>
 
-				<section id="p2">
+				<section id="p2" class="pageBlock">
 					<h2>自己紹介</h2>
-					<h4 class="fragment">
+					<h4>
 						<span class="p2_place">ECサイト運営<br /><small>[東京]</small></span>
 						<i class="fa fa-truck fa-flip-horizontal" aria-hidden="true"></i>
 						<span class="p2_place">非常勤エンジニア＋フリーランス<br /><small>[新潟]</small></span>
 					</h4>
-					<hr class="fragment" />
-					<h4 class="fragment mt10">最近のお仕事</h4>
-					<div class="fragment" style="text-align: left;">
+					<hr />
+					<h4 class="mt20">最近のお仕事</h4>
+					<div style="text-align: left;">
 						<h5 class="mt10">SPA＋API＋DBなWebサービスの制作</h5>
 						<ul>
 							<li>データからグラフを描画するサービス</li>
 							<li>データやファイルを送ってもらってデータベースを作るサービス</li>
 						</ul>
-						<h5 class="mt10">技術面</h5>
-						<ul>
+						<h5 class="mt20">技術面</h5>
+						<ul class="mt10">
 							<li>JavaScript[Backbone.js/React.js/Node.js]</li>
 							<li>Ruby、PHP</li>
 							<li>MySQL、Neo4j、RDF</li>
 						</ul>
-						<p class="fragment">サービスのサーバ設定・管理</p>
-						<p class="fragment">HTML＋CSS＋JavaScriptのコーディング</p>
+						<div class="mt20">
+							<p>サービスのサーバ設定・管理</p>
+							<p>HTML＋CSS＋JavaScriptのコーディング</p>
+						</div>
 					</div>
-					<p class="fragment" style="text-align: right;"><small>・・・などをやっています。</small></p>
+					<p style="text-align: right;"><small>・・・などをやっています。</small></p>
 				</section>
 
-				<section id="p3">
-					<h2>グラフ構造データ</h2>
-					<div class="mt50">
-						<ul>
-							<li>扱うケースはたぶんそんなにない</li>
-							<li>でも扱うことになったらグラフのままデータベースに入れると便利！</li>
-						</ul>
-					</div>
-					<div class="mt50" style="text-align: center;">
-						<i class="fa fa-arrow-circle-down" aria-hidden="true"></i>
-					</div>
-					<div class="mt50">
-						<ul>
-							<li>これRDB・・・？というときの選択肢が増える</li>
-							<li>オープンなグラフデータの存在</li>
-						</ul>
-					</div>
-				</section>
-
-				<section id="p4">
+				<section id="p3" class="pageBlock">
 					<h2>話すこと</h2>
+					<div class="mt50">
+						<ul>
+							<li>グラフデータベースで扱えるもの</li>
+							<li>グラフデータベースで扱わないほうがいいもの</li>
+							<li>グラフデータベースってこんな感じ</li>
+							<li>オープンデータへのアクセス</li>
+							<li>ブラウザやデスクトップでの可視化</li>
+						</ul>
+					</div>
+				</section>
+
+				<section id="p4" class="pageBlock">
+					<h2>もくじ</h2>
 					<div class="mt30">
 						<ul style="text-align: left;">
 							<li>グラフ構造データとは</li>
@@ -99,8 +97,8 @@
 					</div>
 				</section>
 
-				<section id="p5">
-					<h2>データ構造</h2>
+				<section id="p5" class="pageBlock">
+					<h2>データ構造の種類</h2>
 					<div class="mt30">
 						<ul style="text-align: left;">
 							<li>配列 [スタック/キュー]</li>
@@ -110,6 +108,9 @@
 							<li><strong>グラフ</strong></li>
 						</ul>
 					</div>
+					<div class="mt30">
+						<p>グラフデータベースで扱えるのはグラフと木構造</p>
+					</div>
 					<p class="mt50" style="text-align: right;">
 						<small>
 							<a href="https://ja.wikipedia.org/wiki/データ構造" target="_blank">https://ja.wikipedia.org/wiki/データ構造</a>
@@ -117,17 +118,20 @@
 					</p>
 				</section>
 
-				<section id="p6">
+				<section id="p6" class="pageBlock">
 					<h2>身近にあるグラフ構造</h2>
 					<ul>
 						<li>鉄道路線</li>
 						<li>コンピュータネットワーク</li>
-						<li>家系図</li>
-						<li>人物相関図</li>
+						<li>家系図（木構造）</li>
+						<li>SNSのfollow/followingの関係</li>
 					</ul>
+					<div class="mt30">
+						<p>何かの<strong>ネットワーク</strong>または何かの<strong>相関関係</strong></p>
+					</div>
 				</section>
 
-				<section id="p7">
+				<section id="p7" class="pageBlock">
 					<h2>グラフ理論を少しだけ</h2>
 					<ul>
 						<li>ノード（頂点）とエッジ（辺）がある</li>
@@ -137,10 +141,10 @@
 					</ul>
 				</section>
 
-				<section id="p8">
-					<h2>データベース管理システム</h2>
+				<section id="p8" class="pageBlock">
+					<h2>データベース管理システムの種類</h2>
 					<div class="mt30">
-						<p>RDBMS</p>
+						<h4>RDBMS</h4>
 						<p style="text-align: left;">
 							MySQL / PostgreSQL / SQLite / <br />
 							Oracle Database / Microsoft SQL Server<br />
@@ -148,7 +152,7 @@
 						</p>
 					</div>
 					<div class="mt30">
-						<p>NoSQL</p>
+						<h4>NoSQL</h4>
 						<ul style="text-align: left;">
 							<li>
 								キー・バリュー型・・・Redis / Memcached
@@ -173,28 +177,39 @@
 					</p>
 				</section>
 
-				<section id="p9">
+				<section id="p9" class="pageBlock">
 					<h2>Neo4j</h2>
+					<div class="mt10">
+						<img src="/images/neo4j_cap.png" width="484" height="344" alt="" />
+					</div>
 					<div class="mt30">
 						<ul>
 							<li>グラフデータベースの代表的なもの</li>
 							<li><a href="https://neo4j.com/" target="_blank">https://neo4j.com/</a></li>
 							<li>実装はJava</li>
 							<li>Cypher Queryというものでデータの検索・操作をする</li>
-							<li>だいたいの言語のラッパーライブラリが存在する</li>
+							<li>
+								主要な言語のドライバが存在する<br />
+								公式ドライバ：Javascript/Java/.NET/Python<br />
+								他はコミュニティでの開発
+							</li>
 						</ul>
 					</div>
 				</section>
 
-				<section id="p10">
+				<section id="p10" class="pageBlock">
 					<h2>導入事例</h2>
-					<ul>
+					<div class="mt10">
+						<img src="/images/neo4j_cap2.png" width="484" height="344" alt="" />
+					</div>
+					<ul class="mt20">
 						<li>ロジスティクス</li>
 						<li>レコメンデーションエンジン</li>
+						<li>SNS</li>
 						<li>科学分野</li>
 						<li>パナマ文書</li>
 					</ul>
-					<p class="mt50" style="text-align: right;">
+					<p class="mt20" style="text-align: right;">
 						<small>
 							<a href="https://neo4j.com/customers/" target="_blank">https://neo4j.com/customers/</a>
 							<br />
@@ -205,66 +220,170 @@
 					</p>
 				</section>
 
-				<section id="p11">
-					<h2>とりあえず使ってみる</h2>
-					<h3>インストール</h3>
+				<section id="p11" class="pageBlock">
+					<h2>とりあえず動かしてみる</h2>
+					<div class="mt10">
+						<img src="images/neo4j_start.png" width="692" height="510" alt="" />
+					</div>
 				</section>
 
-				<section id="p12">
-					<h3>データの準備</h3>
-					<table>
-						<tr><td>A</td><td>B</td><td>$30,000</td></tr>
-						<tr><td>A</td><td>C</td><td>$10,000</td></tr>
-						<tr><td>A</td><td>D</td><td>$10,000</td></tr>
-						<tr><td>B</td><td>D</td><td>$50,000</td></tr>
-						<tr><td>D</td><td>E</td><td>$100,000</td></tr>
-						<tr><td>D</td><td>F</td><td>$20,000</td></tr>
-						<tr><td>C</td><td>D</td><td>$30,000</td></tr>
+				<section id="p12" class="pageBlock">
+					<h3>デモ - データの準備</h3>
+					<div class="mt20">
+						<p>CSVやTSVで、「Node1」「Node2」「Edge」のリストを用意する。</p>
+						<p>JSONやXMLでももちろんOKです。</p>
+					</div>
+
+					<table class="demoDataTable">
+						<tr><th>From</th><th>To</th><th>$</th></tr>
+						<tr><td>A</td><td>B</td><td>30000</td></tr>
+						<tr><td>A</td><td>C</td><td>10000</td></tr>
+						<tr><td>A</td><td>D</td><td>10000</td></tr>
+						<tr><td>B</td><td>D</td><td>50000</td></tr>
+						<tr><td>D</td><td>E</td><td>100000</td></tr>
+						<tr><td>D</td><td>F</td><td>20000</td></tr>
+						<tr><td>C</td><td>D</td><td>30000</td></tr>
+						<tr><td colspan="3">・<br />・<br />・</td></tr>
 					</table>
+
+					<div class="mt30">
+						<p style="text-align: left">
+							<small>
+								CSVであればロード用のコマンドラインツールも付属しています。<br />
+								が、データサイズに比例してメモリ消費が増えたり、プロパティが多くなるとコマンドのオプションも複雑になるので、<br />
+								何かしらの言語でパースしながらロードするほうがやりやすく感じます。
+							</small>
+						</p>
+					</div>
 				</section>
 
-				<section id="p13">
-					<h3>データのロード</h3>
-					<pre>
-						<code></code>
-					</pre>
-					<p style="text-align: right;">
-						<small>コード例はRubyです</small>
-					</p>
+				<section id="p13" class="pageBlock">
+					<h3>デモ - データのロード</h3>
+					<div class="mt10 clearfix">
+						<div class="colLeft">
+							<h4>Cypher query</h4>
+<pre><code>
+CREATE (n:Person { name: 'A' })
+CREATE (n:Person { name: 'B' })
+CREATE (n:Person { name: 'C' })
+CREATE (n:Person { name: 'D' })
+CREATE (n:Person { name: 'E' })
+CREATE (n:Person { name: 'F' })
+CREATE (n:Person { name: 'G' })
+CREATE (n:Person { name: 'H' })
+CREATE (n:Person { name: 'I' })
+CREATE (n:Person { name: 'J' })
+MATCH (a:Person),(b:Person) WHERE a.name = 'A' AND b.name = 'B' CREATE (a)-[r:rel {price: 30000}]->(b)
+MATCH (a:Person),(b:Person) WHERE a.name = 'A' AND b.name = 'C' CREATE (a)-[r:rel {price: 10000}]->(b)
+MATCH (a:Person),(b:Person) WHERE a.name = 'A' AND b.name = 'D' CREATE (a)-[r:rel {price: 10000}]->(b)
+MATCH (a:Person),(b:Person) WHERE a.name = 'B' AND b.name = 'D' CREATE (a)-[r:rel {price: 50000}]->(b)
+MATCH (a:Person),(b:Person) WHERE a.name = 'D' AND b.name = 'E' CREATE (a)-[r:rel {price: 100000}]->(b)
+MATCH (a:Person),(b:Person) WHERE a.name = 'D' AND b.name = 'F' CREATE (a)-[r:rel {price: 20000}]->(b)
+MATCH (a:Person),(b:Person) WHERE a.name = 'C' AND b.name = 'D' CREATE (a)-[r:rel {price: 30000}]->(b)
+MATCH (a:Person),(b:Person) WHERE a.name = 'D' AND b.name = 'B' CREATE (a)-[r:rel {price: 10000}]->(b)
+MATCH (a:Person),(b:Person) WHERE a.name = 'F' AND b.name = 'G' CREATE (a)-[r:rel {price: 50000}]->(b)
+MATCH (a:Person),(b:Person) WHERE a.name = 'F' AND b.name = 'H' CREATE (a)-[r:rel {price: 10000}]->(b)
+MATCH (a:Person),(b:Person) WHERE a.name = 'C' AND b.name = 'I' CREATE (a)-[r:rel {price: 20000}]->(b)
+MATCH (a:Person),(b:Person) WHERE a.name = 'I' AND b.name = 'J' CREATE (a)-[r:rel {price: 30000}]->(b)
+MATCH (a:Person),(b:Person) WHERE a.name = 'F' AND b.name = 'J' CREATE (a)-[r:rel {price: 20000}]->(b)
+MATCH (a:Person),(b:Person) WHERE a.name = 'I' AND b.name = 'F' CREATE (a)-[r:rel {price: 10000}]->(b)
+MATCH (a:Person),(b:Person) WHERE a.name = 'G' AND b.name = 'J' CREATE (a)-[r:rel {price: 10000}]->(b)
+</code></pre>
+						</div>
+						<div class="colRight">
+							<h4>Ruby driver経由</h4>
+<pre><code>
+require 'neo4j-core'
+
+tsv_file = ARGV[0]
+neo4jpwd = ARGV[1]
+
+Neo4j::Session.open(:server_db, "http://neo4j:#{neo4jpwd}@localhost:7474")
+
+nodes = []
+relations = []
+File.open(tsv_file).each_line do |l|
+  person_from, person_to, price = l.chomp.split("\t")
+  relations.push([person_from, person_to, price.to_i])
+  nodes.push(person_from, person_to)
+end
+
+
+nodes.uniq.each do |node|
+  Neo4j::Node.create({name: node})
+end
+
+relations.uniq.each do |rel|
+  nodeFrom = Neo4j::Label.find_nodes(:node, :name, rel[0])
+  nodeTo = Neo4j::Label.find_nodes(:node, :name, rel[1])
+  nodeFrom.each do |n1|
+    nodeTo.each do |n2|
+      n1.create_rel(:rel, n2, price: rel[2])
+    end
+  end
+end
+</code></pre>
+						</div>
+					</div>
 				</section>
 
-				<section id="p14">
+				<section id="p14" class="pageBlock">
 					<h3>Webコンソールで確認してみる</h3>
-					<p>http://localhost:7474にアクセスするとコンソールが表示される</p>
+					<p class="mt10">http://localhost:7474</p>
+					<div class="mt20" style="text-align: center;">
+						<img src="./images/neo4j_load_graph.png" width="777" height="450" alt="" />
+					</div>
 				</section>
 
-				<section id="p15">
+				<section id="p15" class="pageBlock">
 					<h3>検索してみる</h3>
-					<p>$30,000以上のやりとり</p>
-					<p>$30,000以上のやりとり</p>
-					<p>Aからお金を受け取った人のリスト</p>
-					<p>Aからのお金は最終的にどこへ行ったか(*)</p>
-					<p>Aの知り合いの知り合いのリスト</p>
+					<h5 class="mt30">$30,000以上のやりとり</h5>
+					<div>
+						<pre><code></code></pre>
+					</div>
+					<h5 class="mt30">Aからお金を受け取った人のリスト</h5>
+					<div>
+						<pre><code></code></pre>
+					</div>
+					<h5 class="mt30">Aからのお金は最終的にどこへ行ったか(*)</h5>
+					<div>
+						<pre><code></code></pre>
+					</div>
+					<h5 class="mt30">AとEにつながりはある？</h5>
+					<div>
+						<pre><code></code></pre>
+					</div>
+					<div class="mt50">
+						<p style="text-align: left;">
+							<strong>*</strong>グラフなので、かなり容易に組み合わせ爆発が起こります。<br />
+							そのため、あまり長い探索は現実的な時間内では終わりません。<br />
+							10ステップくらいでLIMITをかけておくのが無難です。
+						</p>
+					</div>
 				</section>
 
-				<section id="p16">
+				<section id="p16" class="pageBlock">
 					<h3>経路探索の場合</h3>
 				</section>
 
-				<section id="p17">
+				<section id="p17" class="pageBlock">
 					<h3>レコメンデーションエンジンの場合</h3>
 				</section>
 
-				<section id="p18">
-					<h2>RDF</h2>
+				<section id="p18" class="pageBlock">
+					<div class="midBlock">
+						<h1>RDF</h1>
+					</div>
 				</section>
 
-				<section id="p19">
+				<section id="p19" class="pageBlock">
 					<h2>RDFとは何か</h2>
-					<p>W3Cが標準化したWeb上のリソースの記述方式</p>
-					<p>トリプルで表現する<br /><img></p>
-					<p>つまりグラフ</p>
-					<p>同じくW3Cが標準化したSPARQLという言語で検索できる</p>
+					<div class="mt30" style="text-align: left;">
+						<p>W3Cが標準化したWeb上のリソースの記述方式</p>
+						<p>トリプルで表現する<br /><img></p>
+						<p>つまりグラフ</p>
+						<p>同じくW3Cが標準化したSPARQLという言語で検索できる</p>
+					</div>
 					<p class="mt50" style="text-align: right;">
 						<small>
 							<a href="https://ja.wikipedia.org/wiki/Resource_Description_Framework" target="_blank">https://ja.wikipedia.org/wiki/Resource_Description_Framework</a>
@@ -272,55 +391,89 @@
 					</p>
 				</section>
 
-				<section id="p20">
-					<h2>データベース化</h2>
+				<section id="p20" class="pageBlock">
+					<h2>Web上のリソースがつながる</h2>
+					<div class="mt20" style="text-align: center;">
+						<img>
+					</div>
+				</section>
+
+				<section id="p21" class="pageBlock">
+					<h2>RDFをデータベースに入れる</h2>
 					<ul>
 						<li>データベースはトリプルストアとも呼ばれる</li>
-						<li>Virtuoso / Oracle</li>
-						<li>検索APIはSPARQLエンドポイントと呼んだり</li>
+						<li>Virtuoso / Oracle / Apache Jena Fuseki / etc...</li>
+						<li>検索APIはSPARQLエンドポイントと呼んだりする</li>
 					</ul>
 				</section>
 
-				<section id="p21">
+				<section id="p22" class="pageBlock">
 					<h2>オープンなSPARQLエンドポイント</h2>
-					https://www.w3.org/wiki/SparqlEndpoints
-					http://ja.dbpedia.org/
+					<div class="mt30" style="text-align: left;">
+						<p>
+							<a href="https://www.w3.org/wiki/SparqlEndpoints" target="_blank">https://www.w3.org/wiki/SparqlEndpoints</a><br />
+							<a href="http://ja.dbpedia.org/" target="_blank">http://ja.dbpedia.org/</a>
+						</p>
+						<div class="mt20" style="text-align: center;">
+							<img src="images/endpoint.png" alt="" width="483" height="344" alt="" />
+						</div>
+					</div>
 				</section>
 
-				<section id="p22">
+				<section id="p23" class="pageBlock">
 					<h2>SPARQLをちょっとだけ紹介</h2>
 					<p>形に当てはめるようなクエリ</p>
 				</section>
 
-				<section id="p23">
-					RDFの理想と課題
-					ボキャブラリーの分散、データの分散
+				<section id="p24" class="pageBlock">
+					<h2>RDFのもやもやするところ</h2>
+					<div class="mt30" style="text-align: left;">
+						<ul>
+							<li>ボキャブラリーの分散</li>
+							<li>トリプルを作るのが手間</li>
+							<li>エンドポイントを横断する検索はできない</li>
+							<li>やっぱりRESTfulAPIでラップしたい・・・</li>
+						</ul>
+					</div>
+
 				</section>
 
-				<section id="p24">
-					<h2>グラフの可視化</h2>
+				<section id="p25" class="pageBlock">
+					<div class="midBlock">
+						<h1>グラフの可視化</h1>
+					</div>
 				</section>
 
-				<section id="p25">
-					<h2>デスクトップアプリケーション</h2>
-					<ul>
-						<li>Cytoscape</li>
-						<li>R</li>
-						<li>Python</li>
-					</ul>
+				<section id="p26" class="pageBlock">
+					<h2>可視化アルゴリズム</h2>
+
 				</section>
 
-				<section id="p26">
-					<h2>JavaScriptライブラリ</h2>
-					<ul>
-						<li>d3.js</li>
-						<li>cytoscape.js</li>
-						<li>JIT</li>
-						<li>springy</li>
-					</ul>
+				<section id="p27" class="pageBlock">
+					<h2>可視化のためのツール</h2>
+					<div class="mt20 clearfix">
+						<div class="colLeft">
+							<h4>JavaScriptライブラリ</h4>
+							<ul>
+								<li>d3.js</li>
+								<li>cytoscape.js</li>
+								<li>JIT</li>
+								<li>springy</li>
+							</ul>
+						</div>
+						<div class="colRight">
+							<h4>デスクトップ</h4>
+							<ul>
+								<li>Cytoscape</li>
+								<li>R</li>
+								<li>Python</li>
+							</ul>
+						</div>
+					</div>
+					https://neo4j.com/graph-visualization-neo4j/
 				</section>
 
-				<section id="p27">
+				<section id="p28" class="pageBlock">
 					<h2>まとめ</h2>
 					<ul>
 						<li>グラフ構造のデータはグラフデータベースに入れる</li>
@@ -331,8 +484,10 @@
 					</ul>
 				</section>
 
-				<section id="p28">
-					<h2>END</h2>
+				<section id="p29" class="pageBlock">
+					<div class="midBlock">
+						<h1>END</h1>
+					</div>
 				</section>
 			</div><!--/.slides-->
 		</div><!--/.reveal-->
@@ -348,7 +503,7 @@
 				progress: false,
 				slideNumber: true,
 				overview: false,
-				center: true,
+				center: false,
 				touch: true,
 				transitionSpeed: 'fast',
 				// More info https://github.com/hakimel/reveal.js#dependencies
