@@ -1,0 +1,337 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>INSIDE FRONTENDに行ってきた報告+最近のフロントエンドのこと</title>
+
+	<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+	<meta name="author" content="Hakim El Hattab">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<link rel="stylesheet" href="css/original.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section id="p1">
+					<h1 style="text-align: left;">
+						<a href="http://inside-frontend.com/" target="_blank">INSIDE FRONTEND</a>に行ってきた報告<br />
+						<small>＋ 最近のフロントエンドのこと</small>
+					</h1>
+					<h4 class="mt50" style="text-align: left;">
+						2017.02.28 | Yu Watanabe
+					</h4>
+				</section><!--/#p1-->
+
+				<section id="p2">
+					<h1 class="pageHeader">Frontendの定義</h1>
+					<ul class="mt30" style="text-align: left;">
+						<li>Webサイト/Webアプリケーションの中のブラウザで動く部分</li>
+						<li>←→サーバサイド・バックエンド</li>
+						<li>だいたいHTML/CSS/JavaScriptで作る</li>
+						<li>JavaScriptがサーバからデータを取得して(Ajax)、HTMLの一部を書き換えたり</li>
+						<li>ユーザーのアクションをもとにJavaScriptが何かしたり</li>
+					</ul>
+					<div class="mt20">
+						<h3>背景</h3>
+						<p>サーバ側でHTMLを構築して、ブラウザではそれを表示するだけだった時代</p>
+						<p><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></p>
+						<p>ブラウザの進化やHTML5周辺APIの誕生により、フロント側でできることが増えた</p>
+						<p><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></p>
+						<p>UIの改善やモバイル環境への対応のために、フロントで様々な処理をするようになった</p>
+					</div>
+				</section><!--/#p2-->
+
+				<section id="p3">
+					<h1 class="pageHeader">よく使われる用語・技術</h1>
+					<ul class="mt30" style="text-align: left;">
+						<li class="mt10">ES6, ES7, Babel</li>
+						<li class="mt10">gulp, webpack, CommonJS, Browserify</li>
+						<li class="mt10">Sass, PostCSS</li>
+						<li class="mt10">AWS, BaaS</li>
+						<li class="mt10">GitHub, CI, Test</li>
+						<li class="mt10">TypeScript, Flowtype</li>
+					</ul>
+				</section><!--/#p3-->
+
+				<section id="p4">
+					<h1 class="pageHeader">JavaScript frameworks for frontend</h1>
+					<p class="mt30">フロントエンドで様々な処理をする === JavaScriptのコード量の増加</p>
+					<p><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></p>
+					<p>モジュール化や設計をきちんとしないとプログラムが破綻する。</p>
+					<h4 class="mt20">フレームワーク戦争の時代</h4>
+					<img src="./images/fig01.png" width="384" height="288" alt="" />
+					<p class="mt10" style="text-align:right; ">
+						<small><a href="https://github.com/showcases/front-end-javascript-frameworks" target="_blank">https://github.com/showcases/front-end-javascript-frameworks</a></small><br />
+						<small><a href="https://medium.freecodecamp.com/overcoming-javascript-framework-fatigue-741dac9370ee#.4r6ik52o0" target="_blank">https://medium.freecodecamp.com/overcoming-javascript-framework-fatigue-741dac9370ee#.4r6ik52o0</a></small>
+					</p>
+				</section><!--/#p4-->
+
+				<section id="p5">
+					<h1 class="pageHeader">MV*なフレームワーク</h1>
+					<ul class="mt30">
+						<li>Backbone.js</li>
+						<li>Ember.js</li>
+						<li>Knockout.js</li>
+						<li>AngularJS(v1.x)</li>
+					</ul>
+					<div class="mt10">
+						<img src="./images/fig02.png" width="680" height="440" alt="" />
+					</div>
+				</section><!--/#p5-->
+
+				<section id="p6">
+					<h1 class="pageHeader">MV*の次のアプローチ</h1>
+					<ul class="mt30">
+						<li>React.js(Virtual DOM) + Flux</li>
+						<li>Angular2</li>
+						<li>Vue.js</li>
+					</ul>
+					<div class="mt10">
+						<img src="./images/fig03.png" width="680" height="460" alt="" />
+					</div>
+				</section><!--/#p6-->
+
+				<section id="p7">
+					<div class="mt30">
+						<p style="text-align: center;">特徴：<strong>コンポーネント志向・データフローを一方通行に・Virtual DOM・型っぽいアプローチ</strong></p>
+						<ul style="text-align: left;">
+							<li>データが変化したら自動的に（すべての）ビューが更新される === データとビューの乖離が起こらない</li>
+							<li>すべてのビューの更新ではあっても、Virtual DOMによって自動的に差分のみが再レンダリングされるので、動作は重たくならない。</li>
+							<li>データは親コンポーネントから子コンポーネントの方向にしか渡らず、子と子は疎結合。再利用やテストがやりやすい。</li>
+							<li>MV*でModelがやっていた処理をどこでやるのかについては、明確な決まりはない。（特にReact.js）</li>
+						</ul>
+					</div>
+					<div class="mt50">
+						<p><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></p>
+						<p>ここまでだいぶ強引にまとめたので、<br />それぞれフレームワーク・ライブラリの特徴については、興味があったら調べてみてください！</p>
+						<p>MV*が適したアプリケーションももちろんあります。</p>
+					</div>
+				</section><!--/#p7-->
+
+				<section id="p8">
+					<h1 class="pageHeader">CSS is too fragile</h1>
+					<div class="mt30">
+						<p style="text-align: left;">CSSには名前空間がなく、すぐに混沌が発生します。</p>
+						<p style="text-align: left;">
+							<a href="https://www.w3.org/wiki/WebComponents/" target="_blank">Web components</a>や<a href="https://www.w3.org/TR/shadow-dom/" target="_blank">Shadow DOM</a>などの仕様が確定すればカプセル化が可能になりますが、ブラウザに実装されるのはまだ先です。
+						</p>
+					</div>
+					<p><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></p>
+					<div class="mt20">
+						<h4>そこで、できるだけ混沌を生まない記述手法が模索されてきています。</h4>
+					</div>
+					<ul>
+						<li><a href="http://getbem.com/" target="_blank">BEM</a>（<a href="https://app.codegrid.net/entry/bem-basic-1" target="_blank">参考</a>）</li>
+						<li><a href="https://smacss.com/" target="_blank">SMACCS</a></li>
+						<li><a href="http://ecss.io/" target="_blank">ECSS</a></li>
+						<li>etc...</li>
+					</ul>
+					<p class="mt20">
+						<small>ある程度以上の規模のCSSを書くなら、どれでもいいので何かしらの手法を取り入れるのがいいと思います。個人的にはBEMです。</small>
+					</p>
+					<hr />
+					<div class="mt20">
+						<p style="text-align: right;">・・・というような分野の人たちの集まりに行ってきました&nbsp;&nbsp;<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></p>
+					</div>
+				</section><!--/#p8-->
+
+				<section id="p9">
+					<h1 class="pageHeader pageHeader-if"><a href="http://inside-frontend.com/" target="_blank">INSIDE FRONTEND</a></h1>
+					<h4 class="mt20">2017.02.25<br />Yahoo! JAPAN（東京ガーデンテラス紀尾井町）</h4>
+					<div class="mt30 clearfix">
+						<div class="colLeft" style="text-align: center;"><img src="./images/fig04.png" width="284" height="380" alt="" /></div>
+						<div class="colRight">
+							<p style="text-align: left;">Yahoo!の本社内でした</p>
+							<p style="text-align: left;">参加者は350人くらい（抽選）</p>
+							<img src="./images/fig05.png" width="320" height="240" alt="" />
+						</div>
+					</div>
+					<p class="mt10" style="text-align: right;"><small>写真は公式Twitterから拝借</small></p>
+					<hr />
+					<div class="mt10">
+						<p style="text-align: right;">以降、当日のメモの抜粋です&nbsp;&nbsp;<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></p>
+					</div>
+				</section><!--/#p9-->
+
+				<section id="p10">
+					<h1 class="pageHeader pageHeader-if">Web over ServiceWorker</h1>
+					<ul class="mt30" style="text-align: left;">
+						<li>PWAを実現する技術のひとつ。PWAはネイティブアプリとほぼ区別がなくなるのでは？<br />A2HS、Google docs</li>
+						<li>ViewのJSとは別のプロセス</li>
+						<li>モバイルでのオフライン対応などができる</li>
+						<li>Safariは未対応・・・</li>
+						<li>Twitter、Facebookが導入事例</li>
+						<li>ストレージ問題、オーサリングツールが必要になりそう？</li>
+						<li>通知の許可を求めるUXが洗練されていない問題</li>
+					</ul>
+					<p class="mt30 refLink">
+						スライド：<a href="https://speakerdeck.com/jxck/web-over-serviceworker" target="_blank">https://speakerdeck.com/jxck/web-over-serviceworker</a>
+					</p>
+				</section><!--/#p10-->
+
+				<section id="p11">
+					<h1 class="pageHeader pageHeader-if">Web フロントエンドにおけるコンポーネント化のアプローチ</h1>
+					<ul class="mt30" style="text-align: left;">
+						<li>デザインも絡む話だったので、あまり参考にならないかも。</li>
+						<li>コンポーネント化のメリット：再利用性、汎用性、テストがしやすい（責任範囲が明確なので）</li>
+						<li>CSSはデザイン次第で破綻する！（CSSをちゃんと設計していても。）</li>
+						<li>Web components, Shadow DOM, CSS in JS</li>
+						<li>Atomic design -> 全体から先に考える、というデザイナーの習性と合わない？</li>
+					</ul>
+					<ul class="mt30" style="text-align: left;">
+						<li><a href="https://www.sketchapp.com/" target="_blank">Sketch</a>がWeb用のデザインツールとしてかなり定着してきている印象を受けました。</li>
+					</ul>
+					<p class="mt30 refLink">
+						スライド：<a href="https://speakerdeck.com/1000ch/component-of-web-frontend" target="_blank">https://speakerdeck.com/1000ch/component-of-web-frontend</a>
+					</p>
+				</section><!--/#p11-->
+
+				<section id="p12">
+					<h1 class="pageHeader pageHeader-if">アメブロ2016: 実録、アメブロフロントリニューアル275日</h1>
+					<ul class="mt30" style="text-align: left;">
+						<li>もともとはJavaで動いていた。コードは45,000行くらい</li>
+						<li>リニューアルで、サーバ、フロントエンドともにJavaScriptに。===Isomorphic</li>
+						<li>パフォーマンスが上がり、直帰率なども下がった</li>
+						<li>React Redux(fluxから途中で変更) BABEL webpack express</li>
+						<li>SSR+SPA　初期表示されるメインコンテンツはSSR。</li>
+						<li>ただし、広告などの領域は表示前から確保してあり、挿入後に位置がずれないようにしている。（誤タップ防止）</li>
+						<li>renderToString()が遅いのでキャッシュすることに。（React16で改善？）</li>
+						<li>Caching(memcached) -> Cache Hit Rate 73.66%</li>
+					</ul>
+					<p class="mt30 refLink">
+						スライド：<a href="https://speakerdeck.com/herablog/ameburo-2016-shi-lu-ameburoriniyuaru275ri-webpahuomansubian" target="_blank">
+							https://speakerdeck.com/herablog/ameburo-2016-shi-lu-ameburoriniyuaru275ri-webpahuomansubian
+						</a>
+					</p>
+				</section><!--/#p12-->
+
+				<section id="p13">
+					<h1 class="pageHeader pageHeader-if">ReactについてのAsk me anything</h1>
+					<ul class="mt30" style="text-align: left;">
+						<li>Reactはviewのみのライブラリなので、ビジネスロジックどうするか問題->現状Redux一人勝ち？</li>
+						<li>Reactを使うと、細かい周辺ライブラリをたくさん入れる場合が多いが、ライセンスやアップデートの問題がある。</li>
+						<li>なので、Angularのようなone large frameworkのほうが適しているケースもある。いずれにしても安易に依存を増やさないような心がけは持っておくべき。</li>
+						<li>どんなフレームワークでも、工数はあまり変わらないのでは？</li>
+					</ul>
+					<ul class="mt30" style="text-align: left;">
+						<li>もやもやしているところはみんなもやもやしてる、ということが分かってよかったです。</li>
+					</ul>
+				</section><!--/#p13-->
+
+				<section id="p14">
+					<h1 class="pageHeader pageHeader-if">データビジュアライゼーションの作り方</h1>
+					<ul class="mt30" style="text-align: left;">
+						<li><a href="https://vdata.nikkei.com/" target="_blank">日経Visual Data</a>というサービスを作っている方のお話。</li>
+						<li>d3.jsを使用している。それなりに時間をかけて作っている印象（データの収集・整形も入っているから）。</li>
+						<li>d3.jsは手軽にグラフが書ける、というものではない。</li>
+						<li>d3.jsにはブラウザがサポートしていない仕様を補完する機能はない。(!==jQuery)</li>
+						<li>d3.jsやSVGの特性上できないものは、力技のhackのようなこともしている。・・・ということがわかって嬉しかった。<br />z-indexが使えないとか、テキストが折り返さないとか。</li>
+					</ul>
+					<p class="mt30 refLink">
+						スライド：<a href="http://shimz.me/slide/inside-frontend_1/" target="_blank">http://shimz.me/slide/inside-frontend_1/#/</a>
+					</p>
+				</section><!--/#p14-->
+
+				<section id="p15">
+					<h1 class="pageHeader pageHeader-if">JSON Schema in Web Frontend</h1>
+					<ul class="mt30" style="text-align: left;">
+						<li>スマホのリッチ広告（動画広告とか）をやっているYahoo!の社内ベンチャーでの導入事例</li>
+						<li>JSON Schemaとは：JSONの構造をJSONで定義。<a href="http://json-schema.org/implementations.html" target="_blank">IETFに仕様がある</a>。</li>
+						<li>minimum,format,typeなどを定義できる。$refという参照も使える。validationに使える。</li>
+						<li>Hyper-Schema：RESTfulAPIのエンドポイントの定義に使える。APIドキュメントの自動生成やHTTPクライアントの自動生成などができる。</li>
+						<li>大体の言語で使える。Rubyでも使える。prmd GEM</li>
+						<li>
+							この会社では、メールのやり取りベースで広告（のhtmlタグ）を作っていた。->取引先が増えると、自動化したくなった。<br />
+							AWS上で稼働するタグ発行ツールを作った。
+						</li>
+						<li>サーバサイドはRESTfulAPIをgolangで。フロントはNode.js,Babel,Flowtype,React+Reduxなど</li>
+						<li>フロントとバックの連携のためのドキュメントとしてJSON Schemaを使う。</li>
+						<li>さらにJSON SchemaをベースにAPIのモックが自動生成できるので、バックエンドの実装を待たずにフロントが作れる。</li>
+						<li>JSON Schemaをもとに、JavaScriptでHTMLのformタグの自動生成とvalidationをする。</li>
+						<li>JSON Schema自体は手書きなので、ちょっと大変。prmdだとymlで書ける。</li>
+						<li>更新時はバックとフロントで同時にリリースが必要なので、APIのバージョンとJSON Schemaのバージョンがsyncすると良さそう。</li>
+						<li>validationも両方でかけるべきだが、JSON Schemaをベースにすれば共通のルールになる。</li>
+					</ul>
+					<p class="mt30 refLink">
+						スライド：<a href="http://www.slideshare.net/hiroyukianai/json-schema-in-web-frontend-insidefe" target="_blank">
+							http://www.slideshare.net/hiroyukianai/json-schema-in-web-frontend-insidefe
+						</a>
+					</p>
+				</section>
+
+				<section id="p16">
+					<h1 class="pageHeader pageHeader-if">資料</h1>
+					<p class="mt30">時間が重なって聞けなかった発表の資料など</p>
+					<ul class="mt30" style="text-align: left;">
+						<li>
+							<a href="https://speakerdeck.com/triblondon/polyfills-and-the-web" target="_blank">Polyfills are part of the web</a>
+						</li>
+						<li>
+							<a href="https://speakerdeck.com/yomotsu/webvr-for-frontend-engineer" target="_blank">WebGL/WebVR for FrontEnd Engineer</a>
+						</li>
+						<li>
+							<a href="https://speakerdeck.com/yhassy/hurontoendofalseke-ti-woqi-meng-surufang-fa" target="_blank">多様化する利用環境とどう向き合うか</a>
+						</li>
+						<li>
+							<a href="https://speakerdeck.com/kyo_ago/karmawoshi-tutaspaxiang-kee2etesutoji-fa" target="_blank">karmaを使ったSPA向けのE2Eテスト技法</a>
+						</li>
+						<li>
+							<a href="https://github.com/insidefrontend/issue-1/blob/master/topics/session/B3-hiloki-css/slide/20170225-insidefrontend-refactoring-css.pdf" target="_blank">
+								Refactoring CSS: 管理されたカオスへの道のり
+							</a>
+						</li>
+					</ul>
+				</section><!--/#p16-->
+				<section id="p17">
+					<h1>END</h1>
+				</section><!--/#p17-->
+			</div><!--/.slides-->
+		</div><!--/.reveal-->
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+				controls: true,
+				progress: false,
+				slideNumber: true,
+				overview: false,
+				center: false,
+				touch: true,
+				transitionSpeed: 'fast',
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
