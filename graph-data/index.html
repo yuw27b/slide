@@ -34,10 +34,10 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section id="p1" class="pageBlock">
+				<section id="p1" class="pageBlock pageBlock-first">
 					<div class="midBlock">
-						<h1 style="text-align: left;">グラフ構造データを扱うはなし</h1>
-						<h4 class="mt50" style="text-align: left;">
+						<h1 class="slideTitle" style="text-align: left;">グラフ構造データを扱うはなし</h1>
+						<h4 class="mt50 slideTitle" style="text-align: left;">
 							<a href="https://rawcode.net/">Yu Watanabe(@yuw27b)</a><br />2017.03.25 NDS 第51回勉強会
 						</h4>
 					</div>
@@ -65,6 +65,7 @@
 							<li>MySQL、Neo4j、RDF</li>
 						</ul>
 						<div class="mt20">
+							<h5>その他</h5>
 							<p>サービスのサーバ設定・管理</p>
 							<p>HTML＋CSS＋JavaScriptのコーディング</p>
 						</div>
@@ -75,7 +76,7 @@
 				<section id="p3" class="pageBlock">
 					<h2>話すこと</h2>
 					<div class="mt50">
-						<ul>
+						<ul class="lgList">
 							<li>グラフデータベースで扱えるもの</li>
 							<li>グラフデータベースで扱わないほうがいいもの</li>
 							<li>グラフデータベースってこんな感じ</li>
@@ -88,7 +89,7 @@
 				<section id="p4" class="pageBlock">
 					<h2>もくじ</h2>
 					<div class="mt30">
-						<ul style="text-align: left;">
+						<ul class="lgList" style="text-align: left;">
 							<li>グラフ構造データとは</li>
 							<li>グラフデータベース</li>
 							<li>オープンなグラフデータ・RDF</li>
@@ -98,9 +99,15 @@
 				</section>
 
 				<section id="p5" class="pageBlock">
+					<div class="midBlock">
+						<h1 class="sectionTitle">グラフ構造データ</h1>
+					</div>
+				</section>
+
+				<section id="p6" class="pageBlock">
 					<h2>データ構造の種類</h2>
 					<div class="mt30">
-						<ul style="text-align: left;">
+						<ul class="lgList" style="text-align: left;">
 							<li>配列 [スタック/キュー]</li>
 							<li>連想配列 [ハッシュテーブル/ルックアップテーブル]</li>
 							<li>線形リスト</li>
@@ -109,7 +116,11 @@
 						</ul>
 					</div>
 					<div class="mt30">
-						<p>グラフデータベースで扱えるのはグラフと木構造</p>
+						<p style="font-size: 30px;">
+							<i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+							&nbsp;
+							グラフデータベースで扱えるのは<strong>グラフ</strong>と<strong>木構造</strong>
+						</p>
 					</div>
 					<p class="mt50" style="text-align: right;">
 						<small>
@@ -118,30 +129,48 @@
 					</p>
 				</section>
 
-				<section id="p6" class="pageBlock">
+				<section id="p7" class="pageBlock">
 					<h2>身近にあるグラフ構造</h2>
-					<ul>
+					<ul class="lgList">
 						<li>鉄道路線</li>
 						<li>コンピュータネットワーク</li>
 						<li>家系図（木構造）</li>
 						<li>SNSのfollow/followingの関係</li>
 					</ul>
 					<div class="mt30">
-						<p>何かの<strong>ネットワーク</strong>または何かの<strong>相関関係</strong></p>
+						<p style="font-size: 30px;">
+							<i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+							&nbsp;
+							何かの<strong>ネットワーク</strong>または何かの<strong>相関関係</strong>
+						</p>
 					</div>
 				</section>
 
-				<section id="p7" class="pageBlock">
+				<section id="p8" class="pageBlock">
 					<h2>グラフ理論を少しだけ</h2>
-					<ul>
-						<li>ノード（頂点）とエッジ（辺）がある</li>
-						<li>有向グラフと無向グラフがある</li>
-						<li>エッジには重み付けができる</li>
-						<li>単純グラフと多重グラフ</li>
-					</ul>
+					<div class="mt50 clearfix">
+						<div class="colLeft" style="width: 50%;">
+							<ul class="lgList">
+								<li>ノード（頂点）とエッジ（辺）</li>
+								<li>有向グラフと無向グラフ</li>
+								<li>エッジには重み付けができる</li>
+								<li>単純グラフと多重グラフ</li>
+							</ul>
+						</div>
+						<div class="colRight">
+							<img src="images/graph_fig.png" width="440" height="380" alt="" />
+						</div>
+					</div>
 				</section>
 
-				<section id="p8" class="pageBlock">
+				<section id="p9" class="pageBlock">
+					<div class="midBlock">
+						<h1 class="sectionTitle">グラフデータベース</h1>
+					</div>
+				</section>
+
+
+				<section id="p10" class="pageBlock">
 					<h2>データベース管理システムの種類</h2>
 					<div class="mt30">
 						<h4>RDBMS</h4>
@@ -177,7 +206,7 @@
 					</p>
 				</section>
 
-				<section id="p9" class="pageBlock">
+				<section id="p11" class="pageBlock">
 					<h2>Neo4j</h2>
 					<div class="mt10">
 						<img src="/images/neo4j_cap.png" width="484" height="344" alt="" />
@@ -197,7 +226,7 @@
 					</div>
 				</section>
 
-				<section id="p10" class="pageBlock">
+				<section id="p12" class="pageBlock">
 					<h2>導入事例</h2>
 					<div class="mt10">
 						<img src="/images/neo4j_cap2.png" width="484" height="344" alt="" />
@@ -220,14 +249,14 @@
 					</p>
 				</section>
 
-				<section id="p11" class="pageBlock">
+				<section id="p13" class="pageBlock">
 					<h2>とりあえず動かしてみる</h2>
 					<div class="mt10">
 						<img src="images/neo4j_start.png" width="692" height="510" alt="" />
 					</div>
 				</section>
 
-				<section id="p12" class="pageBlock">
+				<section id="p14" class="pageBlock">
 					<h3>デモ - データの準備</h3>
 					<div class="mt20">
 						<p>CSVやTSVで、「Node1」「Node2」「Edge」のリストを用意する。</p>
@@ -257,7 +286,7 @@
 					</div>
 				</section>
 
-				<section id="p13" class="pageBlock">
+				<section id="p15" class="pageBlock">
 					<h3>デモ - データのロード</h3>
 					<div class="mt10 clearfix">
 						<div class="colLeft">
@@ -327,7 +356,7 @@ end
 					</div>
 				</section>
 
-				<section id="p14" class="pageBlock">
+				<section id="p16" class="pageBlock">
 					<h3>Webコンソールで確認してみる</h3>
 					<p class="mt10">http://localhost:7474</p>
 					<div class="mt20" style="text-align: center;">
@@ -335,26 +364,34 @@ end
 					</div>
 				</section>
 
-				<section id="p15" class="pageBlock">
+				<section id="p17" class="pageBlock">
 					<h3>検索してみる</h3>
-					<h5 class="mt30">$30,000以上のやりとり</h5>
+					<h5 class="mt20">$30,000以上のやりとり</h5>
 					<div>
-						<pre><code></code></pre>
+<pre><code style="font-size: 16px; line-height: 20px;">
+MATCH n=()-[r:rel]->() WHERE r.price >= 30000 RETURN n
+</code></pre>
 					</div>
-					<h5 class="mt30">Aからお金を受け取った人のリスト</h5>
+					<h5 class="mt20">Aからお金を受け取った人のリスト</h5>
 					<div>
-						<pre><code></code></pre>
+<pre><code style="font-size: 18px; line-height: 20px;">
+MATCH (a{name: 'A'})-[]->(b) RETURN b
+</code></pre>
 					</div>
-					<h5 class="mt30">Aからのお金は最終的にどこへ行ったか(*)</h5>
+					<h5 class="mt20">Aからのお金がたどった経路(*)</h5>
 					<div>
-						<pre><code></code></pre>
+<pre><code style="font-size: 18px; line-height: 20px;">
+MATCH n=({name: 'A'})-[:rel*..10]->() RETURN n
+</code></pre>
 					</div>
-					<h5 class="mt30">AとEにつながりはある？</h5>
+					<h5 class="mt20">AとEにつながりはある？</h5>
 					<div>
-						<pre><code></code></pre>
+<pre><code style="font-size: 18px; line-height: 20px;">
+MATCH n = (a{name: 'A'})-[:rel*]->(b{name: 'E'}) RETURN COUNT(n)
+</code></pre>
 					</div>
-					<div class="mt50">
-						<p style="text-align: left;">
+					<div class="mt30">
+						<p style="text-align: left; font-size: 16px;">
 							<strong>*</strong>グラフなので、かなり容易に組み合わせ爆発が起こります。<br />
 							そのため、あまり長い探索は現実的な時間内では終わりません。<br />
 							10ステップくらいでLIMITをかけておくのが無難です。
@@ -362,29 +399,37 @@ end
 					</div>
 				</section>
 
-				<section id="p16" class="pageBlock">
-					<h3>経路探索の場合</h3>
-				</section>
-
-				<section id="p17" class="pageBlock">
-					<h3>レコメンデーションエンジンの場合</h3>
-				</section>
-
 				<section id="p18" class="pageBlock">
 					<div class="midBlock">
-						<h1>RDF</h1>
+						<h1 class="sectionTitle">RDF</h1>
 					</div>
 				</section>
 
 				<section id="p19" class="pageBlock">
 					<h2>RDFとは何か</h2>
-					<div class="mt30" style="text-align: left;">
+					<div class="mt30" style="text-align: center;">
 						<p>W3Cが標準化したWeb上のリソースの記述方式</p>
-						<p>トリプルで表現する<br /><img></p>
-						<p>つまりグラフ</p>
+						<p>トリプルで表現する</p>
+<div>
+<pre><code style="font-size: 16px; line-height: 20px;">
+<rdf:RDF
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns:dcterms="http://purl.org/dc/terms/">
+  <rdf:Description rdf:about="urn:states:New%20York">
+    <dcterms:alternative>NY</dcterms:alternative>
+  </rdf:Description>
+</rdf:RDF>
+</code></pre>
+</div>
+						<p class="mt30">つまりグラフ</p>
+						<div style="text-align: center;">
+							<img src="images/rdf_fig.png" width="416" height="160" alt="" />
+						</div>
 						<p>同じくW3Cが標準化したSPARQLという言語で検索できる</p>
 					</div>
-					<p class="mt50" style="text-align: right;">
+					<div class="mt20">
+					</div>
+					<p class="mt30" style="text-align: right;">
 						<small>
 							<a href="https://ja.wikipedia.org/wiki/Resource_Description_Framework" target="_blank">https://ja.wikipedia.org/wiki/Resource_Description_Framework</a>
 						</small>
@@ -394,7 +439,7 @@ end
 				<section id="p20" class="pageBlock">
 					<h2>Web上のリソースがつながる</h2>
 					<div class="mt20" style="text-align: center;">
-						<img>
+						<img src="images/rdf_fig2.png" width="600" height="520" alt="" />
 					</div>
 				</section>
 
@@ -405,34 +450,59 @@ end
 						<li>Virtuoso / Oracle / Apache Jena Fuseki / etc...</li>
 						<li>検索APIはSPARQLエンドポイントと呼んだりする</li>
 					</ul>
-				</section>
-
-				<section id="p22" class="pageBlock">
-					<h2>オープンなSPARQLエンドポイント</h2>
-					<div class="mt30" style="text-align: left;">
-						<p>
-							<a href="https://www.w3.org/wiki/SparqlEndpoints" target="_blank">https://www.w3.org/wiki/SparqlEndpoints</a><br />
-							<a href="http://ja.dbpedia.org/" target="_blank">http://ja.dbpedia.org/</a>
-						</p>
-						<div class="mt20" style="text-align: center;">
-							<img src="images/endpoint.png" alt="" width="483" height="344" alt="" />
+					<div class="mt30">
+						<h3>オープンなSPARQLエンドポイント</h3>
+						<div class="mt10" style="text-align: left;">
+							<p>
+								<a href="https://www.w3.org/wiki/SparqlEndpoints" target="_blank">https://www.w3.org/wiki/SparqlEndpoints</a><br />
+								<a href="http://ja.dbpedia.org/" target="_blank">http://ja.dbpedia.org/</a>
+							</p>
+							<div class="mt10 clearfix" style="text-align: center;">
+								<div class="colLeft">
+									<img src="images/endpoint.png" alt="" alt="" />
+								</div>
+								<div class="colRight" style="text-align: left;">
+									<p>ブラウザAPIから入力してみてもいいし、POSTでリクエストを投げてJSONやXMLを受け取ってもいい。</p>
+								</div>
+							</div>
 						</div>
 					</div>
 				</section>
 
-				<section id="p23" class="pageBlock">
+				<section id="p22" class="pageBlock">
 					<h2>SPARQLをちょっとだけ紹介</h2>
-					<p>形に当てはめるようなクエリ</p>
+					<p class="mt50">形に当てはめるようなクエリ</p>
+					<div class="mt50">
+<pre><code class="sparql" style="font-size: 20px; line-height: 30px;">
+SELECT DISTINCT *
+WHERE {
+  &lt;http://ja.dbpedia.org/resource/新潟県&gt; ?p ?o .
+}
+</code></pre>
+						<img src="images/sparql_fig.png" alt="" />
+					</div>
+				</section>
+				<section id="p23" class="pageBlock">
+					<div class="mt20">
+<pre><code class="sparql" style="font-size: 20px; line-height: 30px;">
+SELECT DISTINCT *
+WHERE {
+  ?s ?p &lt;http://ja.dbpedia.org/resource/新潟県&gt; .
+}
+</code></pre>
+					<img src="images/sparql_fig2.png" alt="" />
+					</div>
 				</section>
 
 				<section id="p24" class="pageBlock">
 					<h2>RDFのもやもやするところ</h2>
 					<div class="mt30" style="text-align: left;">
-						<ul>
-							<li>ボキャブラリーの分散</li>
-							<li>トリプルを作るのが手間</li>
+						<ul class="lgList">
 							<li>エンドポイントを横断する検索はできない</li>
-							<li>やっぱりRESTfulAPIでラップしたい・・・</li>
+							<li>述語を知らないと検索しにくい</li>
+							<li>オントロジーの分散</li>
+							<li>トリプルを作るのが手間</li>
+							<li>やっぱりRESTfulAPIでラップしたくなる・・・</li>
 						</ul>
 					</div>
 
@@ -440,13 +510,20 @@ end
 
 				<section id="p25" class="pageBlock">
 					<div class="midBlock">
-						<h1>グラフの可視化</h1>
+						<h1 class="sectionTitle">グラフの可視化</h1>
 					</div>
 				</section>
 
 				<section id="p26" class="pageBlock">
 					<h2>可視化アルゴリズム</h2>
-
+					<div class="mt20 clearfix">
+						<div class="colLeft">
+							<h4>Force directed</h4>
+						</div>
+						<div class="colRight">
+							<h4>Circular</h4>
+						</div>
+					</div>
 				</section>
 
 				<section id="p27" class="pageBlock">
@@ -454,39 +531,36 @@ end
 					<div class="mt20 clearfix">
 						<div class="colLeft">
 							<h4>JavaScriptライブラリ</h4>
-							<ul>
-								<li>d3.js</li>
-								<li>cytoscape.js</li>
-								<li>JIT</li>
-								<li>springy</li>
+							<ul class="lgList">
+								<li><a href="https://d3js.org/" target="_blank">d3.js</a></li>
+								<li><a href="http://js.cytoscape.org/" target="_blank">cytoscape.js</a></li>
+								<li><a href="https://philogb.github.io/jit/" target="_blank">JIT</a></li>
+								<li><a href="http://getspringy.com/" target="_blank">springy</a></li>
 							</ul>
 						</div>
 						<div class="colRight">
-							<h4>デスクトップ</h4>
-							<ul>
-								<li>Cytoscape</li>
-								<li>R</li>
-								<li>Python</li>
+							<h4>アプリケーション</h4>
+							<ul class="lgList">
+								<li><a href="http://www.cytoscape.org/" target="_blank">Cytoscape</a></li>
+								<li><a href="http://linkurio.us/" target="_blank">Linkurious</a></li>
 							</ul>
 						</div>
 					</div>
-					https://neo4j.com/graph-visualization-neo4j/
 				</section>
 
 				<section id="p28" class="pageBlock">
 					<h2>まとめ</h2>
-					<ul>
-						<li>グラフ構造のデータはグラフデータベースに入れる</li>
+					<ul class="lgList">
+						<li>グラフ構造のデータはNeo4jに入れてみよう</li>
 						<li>※目的によってはメリットが少ないこともある</li>
-						<li>オープンデータをグラフとして公開できる</li>
-						<li>RDFとSPARQL</li>
-						<li>グラフの可視化 - ブラウザ上でもある程度スムーズに表示できる</li>
+						<li>RDFとSPARQLとオープンデータ</li>
+						<li>グラフの可視化 - ブラウザ上でインタラクティブに動かすこともできる</li>
 					</ul>
 				</section>
 
-				<section id="p29" class="pageBlock">
+				<section id="p30" class="pageBlock">
 					<div class="midBlock">
-						<h1>END</h1>
+						<h1 class="sectionTitle">END</h1>
 					</div>
 				</section>
 			</div><!--/.slides-->

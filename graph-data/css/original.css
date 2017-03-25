@@ -121,12 +121,20 @@ hr {
 	height: 100%;
 }
 
+section.pageBlock.pageBlock-first {
+	background: url(../images/bg.png) no-repeat bottom right;
+}
+
 .midBlock {
 	display: block;
 	position: absolute;
 	width: 100%;
 	top: 50%;
 	transform: translateY(-55%);
+}
+
+.reveal h1.slideTitle, .reveal h4.slideTitle {
+	color: #777;
 }
 
 .reveal h1.pageHeader {
@@ -138,8 +146,18 @@ hr {
 	box-sizing: border-box;
 }
 
+.reveal h1.sectionTitle {
+	font-size: 60px;
+	color: #777;
+}
+
 .reveal pre code {
 	max-height: 100%;
+}
+
+.reveal ul.lgList > li {
+	font-size: 30px;
+	line-height: 2.5;
 }
 
 
