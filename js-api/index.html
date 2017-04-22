@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>グラフ構造データを扱う</title>
+
+	<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+	<meta name="author" content="Hakim El Hattab">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/white.css" id="theme">
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<link rel="stylesheet" href="css/original.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section id="p1" class="pageBlock pageBlock-first">
+					<div class="midBlock">
+						<h1 class="slideTitle" style="text-align: left;">JavaScript＋HTML5 API でできること2017</h1>
+						<h4 class="mt50 slideTitle" style="text-align: left;">
+							<a href="https://rawcode.net/">Yu Watanabe(@yuw27b)</a><br />2017.05.20 【NDSiN#12×Niigata.js×C4N】JavaScript 2017春
+						</h4>
+					</div>
+				</section>
+
+				<section id="p2" class="pageBlock">
+					<h2>自己紹介</h2>
+					<h4>
+						<span class="p2_place">ECサイト運営<br /><small>[東京]</small></span>
+						<i class="fa fa-truck fa-flip-horizontal" aria-hidden="true"></i>
+						<span class="p2_place">非常勤エンジニア＋フリーランス<br /><small>[新潟]</small></span>
+					</h4>
+					<hr />
+					<h4 class="mt20">最近のお仕事</h4>
+					<div style="text-align: left;">
+						<h5 class="mt10">SPA＋API＋DBなWebサービスの制作</h5>
+						<ul>
+							<li>データからグラフを描画するサービス</li>
+							<li>データやファイルを送ってもらってデータベースを作るサービス</li>
+						</ul>
+						<h5 class="mt20">技術面</h5>
+						<ul class="mt10">
+							<li>JavaScript[Backbone.js/React.js/Node.js]</li>
+							<li>Ruby、PHP</li>
+							<li>MySQL、Neo4j、RDF</li>
+						</ul>
+						<div class="mt20">
+							<h5>その他</h5>
+							<p>サービスのサーバ設定・管理</p>
+							<p>HTML＋CSS＋JavaScriptのコーディング</p>
+						</div>
+					</div>
+					<p style="text-align: right;"><small>・・・などをやっています。</small></p>
+				</section>
+
+			</div><!--/.slides-->
+		</div><!--/.reveal-->
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+				controls: true,
+				progress: false,
+				slideNumber: true,
+				overview: false,
+				center: false,
+				touch: true,
+				transitionSpeed: 'fast',
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
