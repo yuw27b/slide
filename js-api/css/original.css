@@ -125,10 +125,6 @@ pre > code, pre > code * {
 	height: 100%;
 }
 
-section.pageBlock.pageBlock-first {
-	background: url(../images/bg.svg) no-repeat bottom right;
-}
-
 .midBlock {
 	display: block;
 	position: absolute;
