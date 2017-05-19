@@ -5,23 +5,16 @@
 
 	<title>JavaScript＋HTML5 API でできること2017</title>
 
-	<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-	<meta name="author" content="Hakim El Hattab">
-
+	<meta name="description" content="2017.05.20 【NDSiN#12×Niigata.js×C4N】JavaScript 2017春">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/reveal.css">
 	<link rel="stylesheet" href="css/theme/white.css" id="theme">
-
 	<!-- Code syntax highlighting -->
 	<link rel="stylesheet" href="lib/css/zenburn.css">
-
 	<link rel="stylesheet" href="css/original.css">
-
 	<!-- Printing and PDF exports -->
 	<script>
 		var link = document.createElement( 'link' );
@@ -98,13 +91,257 @@
 							<small>例えばjQueryは、ブラウザごとのDOM APIの実装の差異を吸収してくれていた</small>
 						</li>
 					</ul>
-					<!--
-					ツリー構造の図にする
-					https://developer.mozilla.org/ja/docs/Web/Reference/API
-					https://developer.mozilla.org/ja/docs/Web/API
-					-->
+					<!--click event & Ajax image-->
 				</section>
 
+				<section id="p5" class="pageBlock">
+					<h2>HTML5 APIって・・・？</h2>
+					<ul class="mt50" style="text-align: left;">
+						<li>「HTML5」は2014年10月に勧告されたHTMLの仕様</li>
+						<li>
+							「広義のHTML5」として周辺仕様も含めたものを指すことも多い
+							<br />←今回取り上げるのはココ
+						</li>
+						<li><i class="fa fa-arrow-circle-right" aria-hidden="true"></i>HTMLとCSS以外の、ここ3年くらいで使えるようになった仕様</li>
+						<li>主にJavaScriptで操作する</li>
+					</ul>
+					<p style="text-align: right;">
+						<small><a href="https://ja.wikipedia.org/wiki/HTML5" target="_blank">https://ja.wikipedia.org/wiki/HTML5</a></small>
+					</p>
+				</section>
+
+				<section id="p6" class="pageBlock">
+					<h2>どんなことができるの？</h2>
+					<ul>
+						<li>オフラインとストレージ - App Cache、Web Storage、Indexed Database API、File API</li>
+						<li>デバイスアクセス - Geolocation API、マイク・カメラ、アドレス帳・カレンダー、端末の向き</li>
+						<li>接続性 - WebSocket、Server-Sent Events</li>
+						<li>マルチメディア - audio要素, video要素</li>
+						<li>3D、グラフィックス、エフェクト - SVG、canvas要素、WebGL</li>
+						<li>パフォーマンスと統合 - Web Workers、XMLHttpRequest Level 2</li>
+					</ul>
+					<p style="text-align: right;">
+						<small><a href="https://ja.wikipedia.org/wiki/HTML5" target="_blank">https://ja.wikipedia.org/wiki/HTML5</a></small>
+					</p>
+				</section>
+
+				<section id="p7" class="pageBlock">
+					<div class="midBlock">
+						<h2>ということで、<br />このへんのAPIでできることと<br />ブラウザの対応状況などを紹介していきます。</h2>
+						<p class="mt30">大昔からあるもの、深い考察などは取り上げません。</p>
+					</div>
+				</section>
+
+				<section id="p8" class="pageBlock">
+					<p style="text-align: left;">その前に<strong>ちょっと寄り道・・・</strong></p>
+					<h2 class="mt50">PWA[Progressive Web Apps]のこと</h2>
+					<ul class="mt30">
+						<li>Googleが2015年に提唱</li>
+						<li>ネイティブアプリに近いUXを提供するWebサイト</li>
+						<li>オフラインでも動くとか、通知が来るとか、写真撮れるとか</li>
+						<li>実現にはHTML5 APIが不可欠</li>
+						<li>Apple(iPhone)のスタンスは・・・？</li>
+					</ul>
+				</section>
+				<section id="p9" class="pageBlock">
+					<h2>DOM・CSS関係</h2>
+					<ul class="mt30">
+						<li>
+							ドラッグ＆ドロップのAPIが標準化<small>（jQuery UI がなくても大丈夫！）</small><br />
+							<a href="https://html.spec.whatwg.org/multipage/interaction.html#dnd" target="_blank">Drag and drop API</a>
+						</li>
+						</p>
+						<li>
+							タブレット、スマートフォンのタッチイベントが扱えるように<br />
+							<a href="https://www.w3.org/TR/touch-events/" target="_blank">Touch Events</a><br />
+							<a href="https://w3c.github.io/touch-events/" target="_blank">Touch Events - Level 2</a><small>・・・こちらはまだ草案</small>
+						</li>
+						<li>
+							マウスイベントとタッチイベントをまとめて扱えるように<br />
+							<a href="https://www.w3.org/TR/pointerevents/" target="_blank">Pointer Events</a><br />
+							<a href="https://w3c.github.io/pointerevents/" target="_blank">Pointer Events - Level 2</a><small>・・・こちらもまだ草案</small>
+						</li>
+						<li>
+							CSSアニメーションのイベント取得<br />
+							<a href="https://www.w3.org/TR/css3-conditional/">CSS Conditional Rules Module Level 3</a><br />
+							→将来的には<a href="https://w3c.github.io/web-animations/" target="_blank">Web Animations API</a>に統合される？<br />
+							*DEMO*
+						</p>
+					</ul>
+				</section>
+				<section id="p10" class="pageBlock">
+					<h2>ファイル</h2>
+					<ul class="mt30">
+						<li>
+							ローカルファイルにアクセスできるようになった<small>（Flashがなくてもアップロードできる！）</small><br />
+							読み取り専用、パスは取れない。<br />
+							<a href="https://www.w3.org/TR/FileAPI/" target="_blank">File API</a>
+						</li>
+						<li>
+							ディレクトリ（フォルダ）の扱いは、まだブラウザによってばらつきがある。<br />
+							<a href="https://wicg.github.io/entries-api/" target="_blank">File and Directory Entries API</a><br />
+							*DEMO* or IMG?
+						</li>
+					</ul>
+				</section>
+				<section id="p11" class="pageBlock">
+					<h2>音を鳴らす</h2>
+					<ul class="mt30">
+						<li>
+							HTMLのaudio要素を扱う（play/stopなど）<br />
+							だけじゃなくて、ものすごくいろいろできる：*DEMO*
+							<a href="https://www.w3.org/TR/webaudio/" target="_blank">Web Audio API</a>
+						</li>
+						<li>
+							MIDIデバイスを扱う<br />
+							<a href="https://www.w3.org/TR/webmidi/" target="_blank">Web MIDI API</a>
+						</li>
+						<li>
+							音読してもらう<br />
+							<a href="https://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html" target="_blank">Web Speech API</a>
+						</li>
+					</ul>
+				</section>
+				<section id="p12" class="pageBlock">
+					<h2>ビデオ関係</h2>
+					<ul class="mt30">
+						<li>
+							HTMLのvideo要素を扱う（play/stopなど）<br />
+							<a href="https://developer.mozilla.org/ja/docs/Web/API/HTMLMediaElement" target="_blank">HTMLMediaElement</a><br />
+							<small>「Web Video API」というものは存在しない</small>
+						</li>
+						<li>
+							ビデオに字幕をつける<br />
+							<a href="https://www.w3.org/TR/webvtt1/" target="_blank">WebVTT: The Web Video Text Tracks Format</a>
+							*DEMO*
+						</li>
+					</ul>
+				</section>
+				<section id="p13" class="pageBlock">
+					<h2>2D・3Dグラフィック</h2>
+					<ul class="mt30">
+						<li>SVG<br />
+							<a href="https://www.w3.org/TR/SVG11/" target="_blank">SVG1.1</a><br />
+							<a href="https://www.w3.org/TR/SVG2/" target="_blank">SVG2</a>
+						</li>
+						<li>Canvas<br />
+							<a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API" target="_blank">Canvas API</a>
+						</li>
+						<li>WebGL<br />
+							<a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/" target="_blank">WebGL</a><br />
+							<a href="https://www.khronos.org/registry/webgl/specs/latest/2.0/" target="_blank">WebGL 2</a>
+						</li>
+						<li>WebVR<br />
+							<a href="https://w3c.github.io/webvr/spec/latest/" target="_blank">WebVR</a><br />
+							VRデバイスとの接続についての仕様
+						</li>
+					</ul>
+				</section>
+				<section id="p14" class="pageBlock">
+					<h2>デバイスにアクセスする</h2>
+					<ul class="mt30">
+						<li>
+							<a href="https://www.w3.org/TR/geolocation-API/" target="_blank">Geolocation API</a>*DEMO*
+						</li>
+						<li>
+							<a href="https://www.w3.org/TR/clipboard-apis/" target="_blank">Clipboard API and events</a>*DEMO*
+						</li>
+						<li>
+							<a href="https://www.w3.org/TR/mediacapture-streams/" target="_blank">Media Capture and Streams</a>*DEMO*
+						</li>
+						<li>
+							<a href="https://www.w3.org/TR/ambient-light/" target="_blank">Ambient Light Sensor</a>*DEMO*iPad?
+						</li>
+						<li>
+							<a href="https://www.w3.org/TR/battery-status/" target="_blank">Battery Status API</a>*DEMO*iPad?
+						</li>
+						<li>
+							<a href="http://wicg.github.io/netinfo/" target="_blank">Network Information API</a>*DEMO*
+						</li>
+						<li>
+							<a href="https://www.w3.org/TR/orientation-event/" target="_blank">DeviceOrientation Event Specification</a>*DEMO*
+						</li>
+						<li>
+							<a href="https://webbluetoothcg.github.io/web-bluetooth/" target="_blank">Web Bluetooth</a>
+						</li>
+						<li>
+							<a href="https://www.w3.org/TR/gamepad/" target="_blank">Gamepad</a>
+						</li>
+					</ul>
+					<p class="mt30" style="text-align: left;">
+						※ネイティブアプリでやる場合はOS提供のAPIを使うので、あくまでもWebブラウザからデバイスへのアクセスです。
+					</p>
+				</section>
+				<section id="p15" class="pageBlock">
+					<h2>サーバリクエスト</h2>
+					<ul class="mt30">
+						<li>
+							<a href="https://www.w3.org/TR/XMLHttpRequest2/" target="_blank">XMLHttpRequest Level 2</a>
+						</li>
+						<li>
+							<a href="https://fetch.spec.whatwg.org/" target="_blank">Fetch API</a>*DEMO*
+						</li>
+					</ul>
+				</section>
+				<section id="p16" class="pageBlock">
+					<h2>Web Worker</h2>
+					<p>
+						<a href="https://w3c.github.io/workers/" target="_blank">Web Workers</a>
+						ブラウザにプロセスが常駐して、いろいろやってくれる。
+						キャッシュとか、オンラインになったら同期するとか。
+						Androidの場合はChromeブラウザを起動していなくてもプロセスは生きている。
+					</p>
+					<img/>
+				</section>
+				<section id="p17" class="pageBlock">
+					<h2>キャッシュ、ストレージ</h2>
+					<p>
+						https://developer.mozilla.org/en-US/docs/Web/API/Cache
+						https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API :DEMO
+						https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API
+					</p>
+				</section>
+				<section id="p18" class="pageBlock">
+					<h2>Web socket</h2>
+					<p>
+						https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API
+					</p>
+				</section>
+				<section id="p19" class="pageBlock">
+					<h2>そのほか</h2>
+					<p>
+						DEMO:
+						https://developer.mozilla.org/en-US/docs/Web/API/History
+						https://developer.mozilla.org/en-US/docs/Web/API/Credential_Management_API
+						https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API
+						https://developer.mozilla.org/en-US/docs/Web/API/Plugin
+						https://developer.mozilla.org/en-US/docs/Web/API/Permissions_API
+						NO DEMO:
+						https://heycam.github.io/webidl/
+						https://developer.mozilla.org/en-US/docs/Web/API/Background_Tasks_API
+						https://developer.mozilla.org/en-US/docs/Web/API/Payment_Request_API
+						BeforeInstallPrompt https://developer.mozilla.org/en-US/docs/Web/API/BeforeInstallPromptEvent A2HS Chrome only
+					</p>
+				</section>
+				<section id="p20" class="pageBlock">
+					<h2>おまけ：なくなったもの</h2>
+					<p>
+						ローカルにファイルを保存するようなやつ：
+						https://developer.mozilla.org/en-US/docs/Web/API/BlobBuilder
+						https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem
+						CDATAはなくなるそうです：
+						https://developer.mozilla.org/en-US/docs/Web/API/CDATASection
+						アドレス帳とカレンダーへのアクセス：
+						http://contacts-manager-api.sysapps.org/
+						https://tools.ietf.org/html/rfc6350
+						https://www.w3.org/TR/calendar-api/
+					</p>
+				</section>
+				<section id="p21" class="pageBlock">
+					<div class="midBlock">
+						<h1 class="sectionTitle">END</h1>
+					</div>
+				</section>
 			</div><!--/.slides-->
 		</div><!--/.reveal-->
 
