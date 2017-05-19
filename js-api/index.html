@@ -47,11 +47,6 @@
 					<h4 class="mt20">最近のお仕事</h4>
 					<div style="text-align: left;">
 						<h5 class="mt10">SPA＋API＋DBなWebサービスの制作</h5>
-						<ul>
-							<li>データからグラフを描画するサービス</li>
-							<li>データやファイルを送ってもらってデータベースを作るサービス</li>
-						</ul>
-						<h5 class="mt20">技術面</h5>
 						<ul class="mt10">
 							<li>JavaScript[Backbone.js/React.js/Node.js]</li>
 							<li>Ruby、PHP</li>
@@ -96,15 +91,15 @@
 
 				<section id="p5" class="pageBlock">
 					<h2>HTML5 APIって・・・？</h2>
-					<ul class="mt50" style="text-align: left;">
-						<li>「HTML5」は2014年10月に勧告されたHTMLの仕様</li>
-						<li>
+					<div class="mt50">
+						<p>「HTML5」は2014年10月に勧告されたHTMLの仕様</p>
+						<p>
 							「広義のHTML5」として周辺仕様も含めたものを指すことも多い
 							<br />←今回取り上げるのはココ
-						</li>
-						<li><i class="fa fa-arrow-circle-right" aria-hidden="true"></i>HTMLとCSS以外の、ここ3年くらいで使えるようになった仕様</li>
-						<li>主にJavaScriptで操作する</li>
-					</ul>
+						</p>
+						<p>HTMLとCSS以外の、ここ3年くらいで使えるようになった仕様</p>
+						<p>主にJavaScriptで操作する</p>
+					</div>
 					<p style="text-align: right;">
 						<small><a href="https://ja.wikipedia.org/wiki/HTML5" target="_blank">https://ja.wikipedia.org/wiki/HTML5</a></small>
 					</p>
@@ -165,7 +160,16 @@
 							CSSアニメーションのイベント取得<br />
 							<a href="https://www.w3.org/TR/css3-conditional/">CSS Conditional Rules Module Level 3</a><br />
 							→将来的には<a href="https://w3c.github.io/web-animations/" target="_blank">Web Animations API</a>に統合される？<br />
-							*DEMO*
+<pre>
+<code>
+$('.element').bind('mozTransitionEnd webkitTransitionEnd transitionend', function(){
+  console.log('Transition end!');
+});
+$('.element').on('webkitAnimationEnd animationEnd', function(){
+  console.log('Keyframe animation end!');
+});
+</code>
+</pre>
 						</p>
 					</ul>
 				</section>
@@ -173,14 +177,13 @@
 					<h2>ファイル</h2>
 					<ul class="mt30">
 						<li>
+							<a href="https://www.w3.org/TR/FileAPI/" target="_blank">File API</a><br />
 							ローカルファイルにアクセスできるようになった<small>（Flashがなくてもアップロードできる！）</small><br />
-							読み取り専用、パスは取れない。<br />
-							<a href="https://www.w3.org/TR/FileAPI/" target="_blank">File API</a>
+							読み取り専用、パスは取れない。
 						</li>
 						<li>
-							ディレクトリ（フォルダ）の扱いは、まだブラウザによってばらつきがある。<br />
 							<a href="https://wicg.github.io/entries-api/" target="_blank">File and Directory Entries API</a><br />
-							*DEMO* or IMG?
+							ディレクトリ（フォルダ）の扱いは、まだブラウザによってばらつきがある。
 						</li>
 					</ul>
 				</section>
@@ -188,17 +191,22 @@
 					<h2>音を鳴らす</h2>
 					<ul class="mt30">
 						<li>
+							<a href="https://www.w3.org/TR/webaudio/" target="_blank">Web Audio API</a><br />
 							HTMLのaudio要素を扱う（play/stopなど）<br />
-							だけじゃなくて、ものすごくいろいろできる：*DEMO*
-							<a href="https://www.w3.org/TR/webaudio/" target="_blank">Web Audio API</a>
+							だけじゃなくて、ものすごくいろいろできる。<br />
+<pre>
+<code>
+
+</code>
+</pre>
 						</li>
 						<li>
-							MIDIデバイスを扱う<br />
-							<a href="https://www.w3.org/TR/webmidi/" target="_blank">Web MIDI API</a>
+							<a href="https://www.w3.org/TR/webmidi/" target="_blank">Web MIDI API</a><br />
+							MIDIデバイスを扱う
 						</li>
 						<li>
-							音読してもらう<br />
-							<a href="https://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html" target="_blank">Web Speech API</a>
+							<a href="https://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html" target="_blank">Web Speech API</a><br />
+							音読してもらう
 						</li>
 					</ul>
 				</section>
@@ -212,54 +220,61 @@
 						</li>
 						<li>
 							ビデオに字幕をつける<br />
-							<a href="https://www.w3.org/TR/webvtt1/" target="_blank">WebVTT: The Web Video Text Tracks Format</a>
-							*DEMO*
+							<a href="https://www.w3.org/TR/webvtt1/" target="_blank">WebVTT: The Web Video Text Tracks Format</a><br />
+<pre>
+<code>
+
+</code>
+</pre>
 						</li>
 					</ul>
 				</section>
 				<section id="p13" class="pageBlock">
 					<h2>2D・3Dグラフィック</h2>
-					<ul class="mt30">
-						<li>SVG<br />
-							<a href="https://www.w3.org/TR/SVG11/" target="_blank">SVG1.1</a><br />
-							<a href="https://www.w3.org/TR/SVG2/" target="_blank">SVG2</a>
-						</li>
-						<li>Canvas<br />
-							<a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API" target="_blank">Canvas API</a>
-						</li>
-						<li>WebGL<br />
-							<a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/" target="_blank">WebGL</a><br />
-							<a href="https://www.khronos.org/registry/webgl/specs/latest/2.0/" target="_blank">WebGL 2</a>
-						</li>
-						<li>WebVR<br />
+					<div class="mt30" style="text-align: left;">
+						<h3>SVG</h3>
+						<p>
+							<a href="https://www.w3.org/TR/SVG11/" target="_blank">SVG1.1</a> / <a href="https://www.w3.org/TR/SVG2/" target="_blank">SVG2</a><br />
+							HTML DOMと同様にSVG DOMをJavaScriptから操作できるようになった。IE9以降。
+						</p>
+						<h3>Canvas</h3>
+						<p>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API" target="_blank">Canvas API</a><br />
+							JavaScriptで絵が描けるようになった
+						</p>
+						<h3>WebGL</h3>
+						<p>
+							<a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/" target="_blank">WebGL</a> / <a href="https://www.khronos.org/registry/webgl/specs/latest/2.0/" target="_blank">WebGL 2</a><br />
+							ブラウザでOpenGLライクな3Dグラフィックの描画。グラフィックボードで演算する。<br />
+							非常に煩雑なJavaScriptコードを記述する必要があるため、ラッパーライブラリの<a href="https://threejs.org/" target="_blank">three.js</a>が使われることが多い。
+						</p>
+						<h3>WebVR</h3>
+						<p>
 							<a href="https://w3c.github.io/webvr/spec/latest/" target="_blank">WebVR</a><br />
-							VRデバイスとの接続についての仕様
-						</li>
+							VRデバイスとの接続についての仕様。デバイスからセンサーの値を取得するなど。
+						</p>
 					</ul>
 				</section>
 				<section id="p14" class="pageBlock">
 					<h2>デバイスにアクセスする</h2>
 					<ul class="mt30">
 						<li>
-							<a href="https://www.w3.org/TR/geolocation-API/" target="_blank">Geolocation API</a>*DEMO*
+							<a href="https://www.w3.org/TR/geolocation-API/" target="_blank">Geolocation API</a>
 						</li>
 						<li>
-							<a href="https://www.w3.org/TR/clipboard-apis/" target="_blank">Clipboard API and events</a>*DEMO*
+							<a href="https://www.w3.org/TR/clipboard-apis/" target="_blank">Clipboard API and events</a>
 						</li>
 						<li>
-							<a href="https://www.w3.org/TR/mediacapture-streams/" target="_blank">Media Capture and Streams</a>*DEMO*
+							<a href="https://www.w3.org/TR/mediacapture-streams/" target="_blank">Media Capture and Streams</a>
 						</li>
 						<li>
-							<a href="https://www.w3.org/TR/ambient-light/" target="_blank">Ambient Light Sensor</a>*DEMO*iPad?
+							<a href="https://www.w3.org/TR/ambient-light/" target="_blank">Ambient Light Sensor</a><small>・・・Firefoxのみ。</small>
 						</li>
 						<li>
-							<a href="https://www.w3.org/TR/battery-status/" target="_blank">Battery Status API</a>*DEMO*iPad?
+							<a href="https://www.w3.org/TR/battery-status/" target="_blank">Battery Status API</a>
 						</li>
 						<li>
-							<a href="http://wicg.github.io/netinfo/" target="_blank">Network Information API</a>*DEMO*
-						</li>
-						<li>
-							<a href="https://www.w3.org/TR/orientation-event/" target="_blank">DeviceOrientation Event Specification</a>*DEMO*
+							<a href="https://www.w3.org/TR/orientation-event/" target="_blank">DeviceOrientation Event Specification</a>
 						</li>
 						<li>
 							<a href="https://webbluetoothcg.github.io/web-bluetooth/" target="_blank">Web Bluetooth</a>
@@ -276,66 +291,130 @@
 					<h2>サーバリクエスト</h2>
 					<ul class="mt30">
 						<li>
-							<a href="https://www.w3.org/TR/XMLHttpRequest2/" target="_blank">XMLHttpRequest Level 2</a>
+							<a href="https://www.w3.org/TR/XMLHttpRequest2/" target="_blank">XMLHttpRequest Level 2</a><br />
+							おなじみのAjaxです。Level2からCORSがサポートされました。
 						</li>
 						<li>
-							<a href="https://fetch.spec.whatwg.org/" target="_blank">Fetch API</a>*DEMO*
+							<a href="https://fetch.spec.whatwg.org/" target="_blank">Fetch API</a><br />
+							XHRより低レベルのAPI。現状、Chrome・Firefoxのみ。<br />
+<pre>
+<code>
+fetch(url).then(function(response) {
+  return response.text();
+}).then(function(text) {
+  console.log(text);
+});
+</code>
+</pre>
+							Promiseが返ってきます。
 						</li>
 					</ul>
 				</section>
 				<section id="p16" class="pageBlock">
 					<h2>Web Worker</h2>
-					<p>
-						<a href="https://w3c.github.io/workers/" target="_blank">Web Workers</a>
-						ブラウザにプロセスが常駐して、いろいろやってくれる。
-						キャッシュとか、オンラインになったら同期するとか。
-						Androidの場合はChromeブラウザを起動していなくてもプロセスは生きている。
-					</p>
-					<img/>
+					<div class="mt30" style="text-align:left;">
+						<h3><a href="https://w3c.github.io/workers/" target="_blank">Web Workers API</a></h3>
+						従来のwindowコンテキストとは別のスレッドでJavaScriptを動かせる。<br />
+						重たい演算処理を別スレッドで行う、など。<br />
+						このベーシックな機能はすべてのモダンブラウザに実装済み。
+					</div>
+					<div class="mt30" style="text-align:left;">
+						<h3><a href="https://developer.mozilla.org/ja/docs/Web/API/ServiceWorker_API" target="_blank">ServiceWorker</a></h3>
+						Web Workerのひとつで、ブラウザとネットワークの間のプロキシサーバーとして機能する。<br />
+						PWAには欠かせないが、Chrome、Firefoxでしか動かない（モバイルも同様）。
+						<ul class="mt20">
+							<li>ページのキャッシュを返す（ServiceWorkerの仕様にCache APIが含まれている）</li>
+							<li>オンラインになったらデータを同期する</li>
+							<li>通知を出す</li>
+						</ul>
+						<p>Androidの場合はChromeブラウザを起動していなくてもプロセスは生きている</p>
+					</div>
 				</section>
 				<section id="p17" class="pageBlock">
-					<h2>キャッシュ、ストレージ</h2>
-					<p>
-						https://developer.mozilla.org/en-US/docs/Web/API/Cache
-						https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API :DEMO
-						https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API
-					</p>
+					<h2>ストレージ</h2>
+					<div class="mt30" style="text-align: left;">
+						<h3>
+							<a href="https://www.w3.org/TR/webstorage/" target="_blank">Web Storage</a>
+						</h3>
+						<p>
+							Cookieより容量の大きなキーバリューストア。保存できるのは文字列。<br />
+							<strong>sessionStorage</strong>と<strong>localStorage</strong>がある。<br />
+							すべてのブラウザで実装済み。<br />
+							プライベートブラウジングでは保存できなかったり、ユーザーがクリアしようと思えばできる点に注意。
+						</p>
+					</div>
+					<div class="mt30" style="text-align: left;">
+						<h3>IndexedDB</h3>
+						<p>
+							<a href="https://www.w3.org/TR/IndexedDB/" target="_blank">Indexed Database API</a><br />
+							<a href="https://www.w3.org/TR/IndexedDB-2/" target="_blank">Indexed Database API 2.0</a><br />
+							Web Storageより「データベース」っぽいストレージ。基本的な機能は全ブラウザで使用できる。<br />
+							キーバリューストアだが、テーブル（的なもの）やトランザクション、インデックスの概念がある。<br />
+							WebWorkersから利用できるストレージはIndexedDBのみ。
+						</p>
+					</div>
 				</section>
 				<section id="p18" class="pageBlock">
-					<h2>Web socket</h2>
-					<p>
-						https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API
-					</p>
+					<h2>WebRTC</h2>
+					<div class="mt30" style="text-align: left;">
+						<a href="https://www.w3.org/TR/webrtc/" target="_blank">WebRTC 1.0: Real-time Communication Between Browsers</a><br />
+						<a href="https://www.w3.org/TR/mediacapture-streams/" target="_blank">Media Capture and Streams</a><br />
+						<a href="https://www.w3.org/TR/mediacapture-fromelement/" target="_blank">Media Capture from DOM Elements</a>
+						<p>
+							P2Pでブラウザ間の通信を行うための仕様。例えばビデオチャット。<br />
+							Chrome、Firefoxで実装済み。<br />
+							UDPを使う。<br />
+							接続の確立にはサーバが必要だったり、<a href="https://www.w3.org/TR/websockets/" target="_blank">The WebSocket API</a>の併用がデファクトだったり、実装はけっこう大変そう。
+						</p>
+						<p class="mt20">
+							<small>
+								※WebRTCを利用した有名なビデオチャットサービスに<a href="https://appear.in/" target="_blank">appear.in</a>がありますが、対応ブラウザは「Chrome, Firefox, Opera and Vivaldi.」となっています。<br />
+								モバイルの場合は、アプリか、AndroidではChrome, Firefox, Operaとあります。
+							</small>
+						</p>
+					</div>
 				</section>
 				<section id="p19" class="pageBlock">
 					<h2>そのほか</h2>
-					<p>
-						DEMO:
-						https://developer.mozilla.org/en-US/docs/Web/API/History
-						https://developer.mozilla.org/en-US/docs/Web/API/Credential_Management_API
-						https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API
-						https://developer.mozilla.org/en-US/docs/Web/API/Plugin
-						https://developer.mozilla.org/en-US/docs/Web/API/Permissions_API
-						NO DEMO:
-						https://heycam.github.io/webidl/
-						https://developer.mozilla.org/en-US/docs/Web/API/Background_Tasks_API
-						https://developer.mozilla.org/en-US/docs/Web/API/Payment_Request_API
-						BeforeInstallPrompt https://developer.mozilla.org/en-US/docs/Web/API/BeforeInstallPromptEvent A2HS Chrome only
+					<ul class="mt30">
+						<li>
+							<a href="https://www.w3.org/TR/html5/browsers.html#history" target="_blank">History API</a><br />
+							<small>HTML5の仕様に含まれている</small><br />
+							<a href="https://majido.github.io/scroll-restoration-proposal/history-based-api.html" target="_blank">Custom Scroll Restoration</a>はIE、Edgeで未実装。
+						</li>
+						<li>
+							<a href="https://www.w3.org/TR/credential-management-1/" target="_blank">Credential Management Level 1</a><br />
+							Chromeだけが対応中。ブラウザに保存されたID・パスワードの情報にアクセスできる。（もちろん生パスワードが見られるわけではない。）
+						</li>
+						<li>
+							<a href="https://www.w3.org/TR/WebCryptoAPI/" target="_blank">Web Cryptography API</a><br />
+							JavaScriptでハッシュ(SHA-1、SHA-2)とか公開鍵の生成ができる。ブラウザ実装はまだ足並みが揃っていない感じ。
+						</li>
+						<li>
+							<a href="https://www.w3.org/TR/permissions/" target="_blank">The Permissions API</a><br />
+							GPSとかプッシュ通知とかが使えるかどうかを判定してくれる。Chrome・Firefoxのみ。
+						</li>
+						<li>
+							<a href="https://www.w3.org/TR/payment-request/" target="_blank">Payment Request API</a><br />
+							AndroidのChromeのみで動いている・・・。仕様自体は草案段階。<br />
+							Credential Management APIと同様で、ブラウザに保存されたクレジットカード情報にアクセスできる。
+						</li>
 					</p>
 				</section>
 				<section id="p20" class="pageBlock">
-					<h2>おまけ：なくなったもの</h2>
-					<p>
-						ローカルにファイルを保存するようなやつ：
-						https://developer.mozilla.org/en-US/docs/Web/API/BlobBuilder
-						https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem
-						CDATAはなくなるそうです：
-						https://developer.mozilla.org/en-US/docs/Web/API/CDATASection
-						アドレス帳とカレンダーへのアクセス：
-						http://contacts-manager-api.sysapps.org/
-						https://tools.ietf.org/html/rfc6350
-						https://www.w3.org/TR/calendar-api/
-					</p>
+					<h2>おまけ：標準化から外れたもの</h2>
+					<ul class="mt30">
+						<li>
+							ローカルにファイルを保存するようなやつ<br />
+							<a href="https://www.w3.org/TR/file-writer-api/" target="_blank">File Writer API</a><br />
+							<a href="https://www.w3.org/TR/file-system-api/" target="_blank">File System API</a>
+						</li>
+						<li>
+							アドレス帳とカレンダーへのアクセス<br />
+							<a href="https://www.w3.org/TR/contacts-manager-api/" target="_blank">Contacts Manager API</a><br />
+							<a href="https://www.w3.org/TR/calendar-api/" target="_blank">Calendar API</a>
+						</li>
+					</ul>
 				</section>
 				<section id="p21" class="pageBlock">
 					<div class="midBlock">
