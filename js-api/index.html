@@ -74,7 +74,7 @@
 					<div class="mt30">
 						<strong>JavaScript</strong>と、JavaScriptを実行する<strong>ブラウザ</strong>がやりとりするための仕様
 					</div>
-					<!--<img>-->
+					<img class="mt30 imgNoShadow" src="./images/img02.png" width="400" height="200" alt="" />
 				</section>
 
 				<section id="p4" class="pageBlock">
@@ -82,23 +82,22 @@
 					<ul class="mt50" style="text-align: left;">
 						<li>DOM APIとかXMLHttpRequestとか</li>
 						<li>
-							ブラウザによって実装状況に差がある<br />
+							APIごとに標準化が進められてはいるが、ブラウザによって実装状況に差がある<br />
 							<small>例えばjQueryは、ブラウザごとのDOM APIの実装の差異を吸収してくれていた</small>
 						</li>
 					</ul>
-					<!--click event & Ajax image-->
+					<img class="mt30 imgNoShadow" src="./images/img03.png" width="600" height="300" alt="" />
 				</section>
 
 				<section id="p5" class="pageBlock">
 					<h2>HTML5 APIって・・・？</h2>
 					<div class="mt50">
-						<p>「HTML5」は2014年10月に勧告されたHTMLの仕様</p>
-						<p>
-							「広義のHTML5」として周辺仕様も含めたものを指すことも多い
-							<br />←今回取り上げるのはココ
+						<p class="mt30">「HTML5」は2014年10月に勧告されたHTMLの仕様</p>
+						<p class="mt30">
+							「広義のHTML5」として周辺仕様も含めたものを指すことも多い<br /><small>←今回取り上げるのはココ</small>
 						</p>
-						<p>HTMLとCSS以外の、ここ3年くらいで使えるようになった仕様</p>
-						<p>主にJavaScriptで操作する</p>
+						<p class="mt30">つまりHTMLとCSS以外の、ここ3年くらいで使えるようになってきた機能</p>
+						<p class="mt30">主にJavaScriptで操作する</p>
 					</div>
 					<p style="text-align: right;">
 						<small><a href="https://ja.wikipedia.org/wiki/HTML5" target="_blank">https://ja.wikipedia.org/wiki/HTML5</a></small>
@@ -122,7 +121,7 @@
 
 				<section id="p7" class="pageBlock">
 					<div class="midBlock">
-						<h2>ということで、<br />このへんのAPIでできることと<br />ブラウザの対応状況などを紹介していきます。</h2>
+						<h2>ということで、<br />このへんのAPIでできることと<br />ブラウザの対応状況などを追ってみます。</h2>
 						<p class="mt30">大昔からあるもの、深い考察などは取り上げません。</p>
 					</div>
 				</section>
@@ -160,16 +159,14 @@
 							CSSアニメーションのイベント取得<br />
 							<a href="https://www.w3.org/TR/css3-conditional/">CSS Conditional Rules Module Level 3</a><br />
 							→将来的には<a href="https://w3c.github.io/web-animations/" target="_blank">Web Animations API</a>に統合される？<br />
-<pre>
-<code>
+<pre><code>
 $('.element').bind('mozTransitionEnd webkitTransitionEnd transitionend', function(){
   console.log('Transition end!');
 });
 $('.element').on('webkitAnimationEnd animationEnd', function(){
   console.log('Keyframe animation end!');
 });
-</code>
-</pre>
+</code></pre>
 						</p>
 					</ul>
 				</section>
@@ -179,11 +176,12 @@ $('.element').on('webkitAnimationEnd animationEnd', function(){
 						<li>
 							<a href="https://www.w3.org/TR/FileAPI/" target="_blank">File API</a><br />
 							ローカルファイルにアクセスできるようになった<small>（Flashがなくてもアップロードできる！）</small><br />
-							読み取り専用、パスは取れない。
+							読み取り専用、パスは取れない。<br />
+							<img src="./images/img01.png" width="461" height="118" alt="" />
 						</li>
 						<li>
 							<a href="https://wicg.github.io/entries-api/" target="_blank">File and Directory Entries API</a><br />
-							ディレクトリ（フォルダ）の扱いは、まだブラウザによってばらつきがある。
+							ディレクトリ（フォルダ）のドロップは基本的にはまだ扱えない。（Chromeだけならがんばればできる。）
 						</li>
 					</ul>
 				</section>
@@ -194,11 +192,21 @@ $('.element').on('webkitAnimationEnd animationEnd', function(){
 							<a href="https://www.w3.org/TR/webaudio/" target="_blank">Web Audio API</a><br />
 							HTMLのaudio要素を扱う（play/stopなど）<br />
 							だけじゃなくて、ものすごくいろいろできる。<br />
-<pre>
-<code>
+<pre><code>
+var ctx = new AudioContext();
 
-</code>
-</pre>
+var osc = ctx.createOscillator();
+osc.frequency.value = 440;
+osc.type = 'sine';
+
+var gain = ctx.createGain();
+gain.gain.value = 0.5;
+osc.connect(gain);
+gain.connect(ctx.destination);
+
+osc.start(ctx.currentTime);
+osc.stop(ctx.currentTime + 5);
+</code></pre>
 						</li>
 						<li>
 							<a href="https://www.w3.org/TR/webmidi/" target="_blank">Web MIDI API</a><br />
@@ -217,15 +225,14 @@ $('.element').on('webkitAnimationEnd animationEnd', function(){
 							HTMLのvideo要素を扱う（play/stopなど）<br />
 							<a href="https://developer.mozilla.org/ja/docs/Web/API/HTMLMediaElement" target="_blank">HTMLMediaElement</a><br />
 							<small>「Web Video API」というものは存在しない</small>
+							<p>
+								再生可能なビデオ形式はブラウザによって異なるので、扱いにくい面がある。<br />
+								参考：<a href="https://developer.mozilla.org/ja/docs/Web/HTML/Supported_media_formats" target="_blank">HTML5 の audio 要素と video 要素でサポートされているメディアフォーマット</a>
+							</p>
 						</li>
 						<li>
-							ビデオに字幕をつける<br />
+							ビデオの字幕（track要素）を扱う<br />
 							<a href="https://www.w3.org/TR/webvtt1/" target="_blank">WebVTT: The Web Video Text Tracks Format</a><br />
-<pre>
-<code>
-
-</code>
-</pre>
 						</li>
 					</ul>
 				</section>
@@ -297,15 +304,14 @@ $('.element').on('webkitAnimationEnd animationEnd', function(){
 						<li>
 							<a href="https://fetch.spec.whatwg.org/" target="_blank">Fetch API</a><br />
 							XHRより低レベルのAPI。現状、Chrome・Firefoxのみ。<br />
-<pre>
-<code>
+							後述のWebWorkersからも使える。
+<pre><code>
 fetch(url).then(function(response) {
   return response.text();
 }).then(function(text) {
   console.log(text);
 });
-</code>
-</pre>
+</code></pre>
 							Promiseが返ってきます。
 						</li>
 					</ul>
@@ -330,6 +336,13 @@ fetch(url).then(function(response) {
 						<p>Androidの場合はChromeブラウザを起動していなくてもプロセスは生きている</p>
 					</div>
 				</section>
+				<section id="p16-2">
+					<h2>Web Worker</h2>
+					<div class="mt30" style="text-align:left;">
+						<h3><a href="https://developer.mozilla.org/ja/docs/Web/API/ServiceWorker_API" target="_blank">ServiceWorker</a></h3>
+					</div>
+					<img class="imgNoShadow" src="./images/img04.png" width="800" height="400" alt="" />
+				</section>
 				<section id="p17" class="pageBlock">
 					<h2>ストレージ</h2>
 					<div class="mt30" style="text-align: left;">
@@ -344,7 +357,7 @@ fetch(url).then(function(response) {
 						</p>
 					</div>
 					<div class="mt30" style="text-align: left;">
-						<h3>IndexedDB</h3>
+						<h3><a href="https://developer.mozilla.org/ja/docs/Web/API/IndexedDB_API" target="_blank">IndexedDB</a></h3>
 						<p>
 							<a href="https://www.w3.org/TR/IndexedDB/" target="_blank">Indexed Database API</a><br />
 							<a href="https://www.w3.org/TR/IndexedDB-2/" target="_blank">Indexed Database API 2.0</a><br />

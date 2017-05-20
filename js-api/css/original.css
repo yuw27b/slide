@@ -72,6 +72,11 @@ body, .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
 	border: 0;
 }
 
+.reveal section img.imgNoShadow {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
 .reveal .controls .navigate-left, .reveal .controls .navigate-left.enabled {
 	border-right-color: #6A9E99;
 }
