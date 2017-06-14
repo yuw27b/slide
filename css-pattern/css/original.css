@@ -2,7 +2,7 @@ body, .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
 	font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;
 	text-transform: none;
 	color: #444;
-	font-size: 20px;
+	font-size: 28px;
 	line-height: 1.6;
 }
 
@@ -13,27 +13,27 @@ body, .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
 
 .reveal .slides section {
 	padding: 10px 0;
-	font-size: 22px;
+	font-size: 28px;
 }
 
 .reveal h1 {
 	color: #A13646;
-	font-size: 36px;
+	font-size: 40px;
 }
 
 .reveal h2 {
 	color: #A13646;
-	font-size: 32px;
+	font-size: 36px;
 }
 
 .reveal h3 {
 	color: #A13646;
-	font-size: 28px;
+	font-size: 32px;
 }
 
 .reveal h4 {
 	color: #A13646;
-	font-size: 24px;
+	font-size: 28px;
 }
 
 .reveal ul {
